@@ -19,7 +19,7 @@ export const Navbar = () => {
 
   return (
     <header className="sticky top-0 z-50 bg-[#08080a]/95 backdrop-blur-md border-b border-zinc-800/80">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 xl:px-8 h-16 flex items-center justify-between gap-6">
         {/* Brand: signature, same as hero */}
         <Link to="/" aria-label="Pablo Costas - Inicio" className="group shrink-0">
           <img
@@ -30,13 +30,13 @@ export const Navbar = () => {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-5 xl:gap-6">
+        <nav className="hidden xl:flex items-center gap-7 2xl:gap-9">
           {links.map((link) => (
             <NavLink
               key={link.label}
               to={link.path}
               className={({ isActive }) =>
-                `text-xs font-medium uppercase tracking-wider transition-colors ${
+                `whitespace-nowrap text-xs font-medium uppercase tracking-wider transition-colors ${
                   isActive ? 'text-antique-gold font-semibold' : 'text-zinc-300 hover:text-white'
                 }`
               }
@@ -47,12 +47,12 @@ export const Navbar = () => {
         </nav>
 
         {/* Actions Desktop */}
-        <div className="hidden sm:flex items-center gap-3">
+        <div className="hidden sm:flex items-center gap-4 shrink-0">
           <a
             href={SHOW_DETAILS.bookingUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs text-zinc-300 hover:text-antique-gold transition-colors flex items-center gap-1 font-medium"
+            className="whitespace-nowrap text-xs text-zinc-300 hover:text-antique-gold transition-colors flex items-center gap-1 font-medium"
           >
             <span className="hidden xl:inline">Sala Houdini</span>
             <span className="xl:hidden">Houdini</span>
@@ -60,7 +60,7 @@ export const Navbar = () => {
           </a>
           <Link
             to="/contacto"
-            className="px-3.5 py-2 rounded-md bg-white hover:bg-zinc-200 text-zinc-950 text-xs font-semibold uppercase tracking-wider transition-colors"
+            className="whitespace-nowrap px-4 py-2 rounded-md bg-white hover:bg-zinc-200 text-zinc-950 text-xs font-semibold uppercase tracking-wider transition-colors"
           >
             Contratar
           </Link>
@@ -69,7 +69,7 @@ export const Navbar = () => {
         {/* Mobile Hamburger toggle */}
         <button
           onClick={() => setOpen(!open)}
-          className="lg:hidden p-2 text-zinc-400 hover:text-white rounded-md focus:outline-none"
+          className="xl:hidden p-2 text-zinc-400 hover:text-white rounded-md focus:outline-none"
           aria-label="Abrir menú"
         >
           {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -78,7 +78,7 @@ export const Navbar = () => {
 
       {/* Mobile Drawer */}
       {open && (
-        <div className="lg:hidden bg-[#0c0c10] border-b border-zinc-800 px-6 py-6 space-y-3">
+        <div className="xl:hidden bg-[#0c0c10] border-b border-zinc-800 px-6 py-6 space-y-3">
           {links.map((link) => (
             <NavLink
               key={link.label}
