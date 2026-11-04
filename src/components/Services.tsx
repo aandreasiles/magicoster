@@ -1,184 +1,109 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Briefcase, Heart, Wine, CheckCircle2, ArrowRight, Sparkles, Smartphone, Eye, Hand } from 'lucide-react';
+import { Check, ArrowRight } from 'lucide-react';
 import { SERVICES_DATA } from '../data/magicData';
 
-export const Services: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'empresas' | 'bodas' | 'coctelerias'>('empresas');
-
-  const currentService = SERVICES_DATA.find((s) => s.category === activeTab) || SERVICES_DATA[0];
-
-  const tabs = [
-    { id: 'empresas', label: 'Empresas & Galas', icon: Briefcase },
-    { id: 'bodas', label: 'Bodas & Particulares', icon: Heart },
-    { id: 'coctelerias', label: 'Coctelerías & Ocio', icon: Wine },
-  ];
-
+export const Services = () => {
   return (
-    <section id="servicios" className="py-24 px-4 sm:px-6 relative bg-[#07070a] overflow-hidden">
-      {/* Decorative background glows */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-[#d4af37]/5 blur-[150px] pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto relative z-10">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#d4af37]/10 border border-[#d4af37]/30 text-[#f3d37a] text-xs font-semibold tracking-wider uppercase mb-4"
-          >
-            <Sparkles className="w-3.5 h-3.5 text-[#d4af37]" />
-            Experiencias Mágicas a Medida
-          </motion.div>
-
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-3xl sm:text-5xl font-serif font-extrabold text-white tracking-tight mb-4"
-          >
-            Magia diseñada para cada ocasión
-          </motion.h2>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-slate-300 text-base sm:text-lg"
-          >
-            Un estilo sofisticado, dinámico e interactivo adaptado meticulosamente a las necesidades de tu evento.
-          </motion.p>
+    <section id="servicios" className="py-20 border-b border-zinc-800/60 bg-[#08080a]">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        {/* Header */}
+        <div className="max-w-2xl mb-14">
+          <span className="text-xs font-mono uppercase tracking-widest text-champagne block mb-2">
+            Servicios Profesionales
+          </span>
+          <h2 className="text-3xl sm:text-5xl font-serif font-bold text-white tracking-tight mb-4">
+            Magia adaptada a cada formato de evento
+          </h2>
+          <p className="text-zinc-400 text-base leading-relaxed">
+            Formatos probados durante más de 15 años para dinamizar, emocionar y conectar a los asistentes sin alterar el ritmo del evento.
+          </p>
         </div>
 
-        {/* Tab Buttons */}
-        <div className="flex justify-center mb-12">
-          <div className="inline-flex p-1.5 rounded-2xl bg-white/[0.04] border border-white/10 backdrop-blur-md">
-            {tabs.map((tab) => {
-              const Icon = tab.icon;
-              const isActive = activeTab === tab.id;
-              return (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id as any)}
-                  className={`flex items-center gap-2.5 px-5 py-3 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 cursor-pointer ${
-                    isActive
-                      ? 'bg-gradient-to-r from-[#d4af37] to-[#f3d37a] text-black font-semibold shadow-[0_0_20px_rgba(212,175,55,0.35)]'
-                      : 'text-slate-300 hover:text-white hover:bg-white/5'
-                  }`}
-                >
-                  <Icon className="w-4 h-4" />
-                  <span>{tab.label}</span>
-                </button>
-              );
-            })}
-          </div>
-        </div>
+        {/* 3 Main Services Editorial Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+          {SERVICES_DATA.map((service) => (
+            <div
+              key={service.id}
+              className="rounded-lg overflow-hidden border border-zinc-800 bg-zinc-900/60 flex flex-col justify-between hover:border-zinc-700 transition-colors"
+            >
+              <div>
+                <div className="aspect-[16/10] w-full overflow-hidden bg-zinc-950">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover filter contrast-[1.05]"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-6">
+                  <span className="text-[10px] font-mono uppercase tracking-widest text-champagne block mb-2">
+                    {service.badge}
+                  </span>
+                  <h3 className="text-xl font-serif font-bold text-white mb-2">
+                    {service.title}
+                  </h3>
+                  <p className="text-xs text-zinc-400 font-serif italic mb-4">
+                    "{service.tagline}"
+                  </p>
+                  <p className="text-xs text-zinc-300 leading-relaxed mb-6">
+                    {service.description}
+                  </p>
 
-        {/* Active Service Showcase Card */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentService.id}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.4 }}
-            className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-white/[0.04] to-transparent border border-white/10 backdrop-blur-md mb-16"
-          >
-            {/* Left Column: Information */}
-            <div className="lg:col-span-7 space-y-6">
-              <span className="px-3 py-1 rounded-full bg-[#d4af37]/20 border border-[#d4af37]/40 text-[#f3d37a] text-xs font-mono font-semibold uppercase tracking-wider">
-                {currentService.badge}
-              </span>
-
-              <h3 className="text-3xl sm:text-4xl font-serif font-bold text-white">
-                {currentService.title}
-              </h3>
-
-              <p className="text-lg text-[#f3d37a] font-serif font-medium">
-                "{currentService.tagline}"
-              </p>
-
-              <p className="text-slate-300 leading-relaxed text-base">
-                {currentService.description}
-              </p>
-
-              {/* Bullet Points */}
-              <div className="space-y-3 pt-2">
-                {currentService.points.map((pt, idx) => (
-                  <div key={idx} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-[#d4af37] shrink-0 mt-0.5" />
-                    <span className="text-slate-200 text-sm">{pt}</span>
-                  </div>
-                ))}
+                  <ul className="space-y-2 border-t border-zinc-800 pt-4">
+                    {service.points.map((pt, i) => (
+                      <li key={i} className="flex items-start gap-2 text-xs text-zinc-300">
+                        <Check className="w-3.5 h-3.5 text-champagne shrink-0 mt-0.5" />
+                        <span>{pt}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
 
-              <div className="pt-4">
+              <div className="p-6 pt-0">
                 <a
                   href="#contacto"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#d4af37] hover:bg-[#f3d37a] text-black font-semibold text-sm transition-all shadow-[0_0_15px_rgba(212,175,55,0.3)]"
+                  className="w-full inline-flex items-center justify-center gap-1.5 py-2.5 rounded border border-zinc-700 hover:border-zinc-500 text-xs font-semibold uppercase tracking-wider text-white transition-colors"
                 >
-                  <span>Pedir presupuesto para {currentService.title}</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <span>Pedir presupuesto</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </a>
               </div>
             </div>
+          ))}
+        </div>
 
-            {/* Right Column: Image */}
-            <div className="lg:col-span-5 relative group overflow-hidden rounded-2xl border border-white/10 shadow-2xl">
-              <div className="aspect-[4/3] w-full overflow-hidden">
-                <img
-                  src={currentService.image}
-                  alt={currentService.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  loading="lazy"
-                />
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
-              <div className="absolute bottom-4 left-4 right-4 text-xs text-slate-300 font-mono">
-                ✦ Imagen real en actuación de Pablo Costas
-              </div>
-            </div>
-          </motion.div>
-        </AnimatePresence>
-
-        {/* Sub-specialties Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="p-6 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-[#d4af37]/40 transition-colors">
-            <div className="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 mb-4">
-              <Eye className="w-6 h-6" />
-            </div>
-            <h4 className="text-lg font-serif font-bold text-white mb-2">
-              Mentalismo & Sugestión
-            </h4>
-            <p className="text-sm text-slate-400 leading-relaxed">
-              Lectura de pensamiento, predicciones imposibles y experiencias psicológicas que desafían cualquier lógica racional.
-            </p>
+        {/* 3 Technical disciplines strip */}
+        <div className="p-8 rounded-lg bg-zinc-900 border border-zinc-800">
+          <div className="text-xs font-mono uppercase tracking-widest text-zinc-400 mb-6 text-center">
+            Especialidades de Ilusionismo
           </div>
-
-          <div className="p-6 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-[#d4af37]/40 transition-colors">
-            <div className="w-12 h-12 rounded-xl bg-[#d4af37]/10 border border-[#d4af37]/30 flex items-center justify-center text-[#d4af37] mb-4">
-              <Smartphone className="w-6 h-6" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="space-y-2">
+              <div className="text-sm font-serif font-bold text-white">
+                Mentalismo & Hipnosis
+              </div>
+              <p className="text-xs text-zinc-400 leading-relaxed">
+                Lecturas de pensamiento, predicciones imposibles y experiencias de sugestión que desafían la lógica del público más escéptico.
+              </p>
             </div>
-            <h4 className="text-lg font-serif font-bold text-white mb-2">
-              Magia Tecnológica
-            </h4>
-            <p className="text-sm text-slate-400 leading-relaxed">
-              Ilusionismo contemporáneo utilizando teléfonos móviles de los propios invitados, redes sociales y efectos visuales de vanguardia.
-            </p>
-          </div>
 
-          <div className="p-6 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-[#d4af37]/40 transition-colors">
-            <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-4">
-              <Hand className="w-6 h-6" />
+            <div className="space-y-2">
+              <div className="text-sm font-serif font-bold text-white">
+                Magia con Smartphones
+              </div>
+              <p className="text-xs text-zinc-400 leading-relaxed">
+                Efectos modernos utilizando los teléfonos móviles y redes sociales de los propios asistentes, fusionando tecnología y asombro.
+              </p>
             </div>
-            <h4 className="text-lg font-serif font-bold text-white mb-2">
-              Pickpocket Cómico
-            </h4>
-            <p className="text-sm text-slate-400 leading-relaxed">
-              "Robos" elegantes de relojes, corbatas y carteras en directo con un humor hilarante (y devueltos al instante... ¡o no!).
-            </p>
+
+            <div className="space-y-2">
+              <div className="text-sm font-serif font-bold text-white">
+                Pickpocket Cómico
+              </div>
+              <p className="text-xs text-zinc-400 leading-relaxed">
+                "Robos" elegantes de relojes, carteras y corbatas en directo con humor hilarante y devueltos al instante.
+              </p>
+            </div>
           </div>
         </div>
       </div>

@@ -1,149 +1,102 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { User, Check } from 'lucide-react';
+import { Check } from 'lucide-react';
 import { CONTACT_INFO } from '../data/magicData';
 
-const InstagramIcon: React.FC<{ className?: string }> = ({ className }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
-    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
-  </svg>
-);
-
-export const AboutMe: React.FC = () => {
+export const AboutMe = () => {
   return (
-    <section id="sobre-mi" className="py-24 px-4 sm:px-6 relative bg-[#07070a] overflow-hidden">
-      {/* Background glow */}
-      <div className="absolute top-1/3 left-1/4 w-[600px] h-[350px] bg-[#d4af37]/5 blur-[150px] pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto relative z-10">
+    <section id="sobre-mi" className="py-20 border-b border-zinc-800/60 bg-[#08080a]">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Left Column: Portrait & Stats card */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="lg:col-span-5 relative"
-          >
-            <div className="relative rounded-3xl overflow-hidden border border-[#d4af37]/40 shadow-[0_0_40px_rgba(212,175,55,0.15)] bg-[#101018]">
-              <img
-                src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1440,h=960,fit=crop/mxBXBX7KznSE6Zr6/sis-99-AzGNGLeKNXuxBb7L.jpg"
-                alt="Pablo Costas Mago Magicoster"
-                className="w-full h-auto object-cover"
-              />
-
-              <div className="p-6 bg-gradient-to-t from-[#0e0e16] via-[#0e0e16]/95 to-transparent space-y-4">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <h3 className="text-2xl font-serif font-bold text-white">
-                      Pablo Costas
-                    </h3>
-                    <p className="text-xs text-[#d4af37] font-mono tracking-wider uppercase">
-                      "Magicoster" • Ilusionista Profesional
-                    </p>
-                  </div>
-
-                  <a
-                    href={CONTACT_INFO.instagram}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2.5 rounded-full bg-pink-600/20 hover:bg-pink-600/40 text-pink-300 border border-pink-500/30 transition-colors"
-                    aria-label="Instagram de Pablo Costas"
-                  >
-                    <InstagramIcon className="w-5 h-5" />
-                  </a>
+          {/* Left Column: Portrait */}
+          <div className="lg:col-span-5">
+            <div className="rounded-lg overflow-hidden border border-zinc-800 bg-zinc-900 shadow-xl">
+              <div className="aspect-[4/5] w-full">
+                <img
+                  src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=2800,h=1866,fit=crop/mxBXBX7KznSE6Zr6/editada-04039-YbNJNLqoLGsgW08M.jpg"
+                  alt="Pablo Costas Mago e Ilusionista"
+                  className="w-full h-full object-cover filter contrast-[1.05]"
+                  loading="lazy"
+                />
+              </div>
+              <div className="p-4 bg-zinc-950 border-t border-zinc-800 flex items-center justify-between text-xs">
+                <div>
+                  <div className="text-white font-medium">Pablo Costas</div>
+                  <div className="text-zinc-500 font-mono text-[11px]">@magicoster • +720k seguidores</div>
                 </div>
-
-                {/* Micro stats */}
-                <div className="grid grid-cols-2 gap-3 pt-2 border-t border-white/10 text-center">
-                  <div className="p-2.5 rounded-xl bg-white/[0.04]">
-                    <div className="text-lg font-serif font-bold text-[#f3d37a]">+15 Años</div>
-                    <div className="text-[10px] text-slate-400 uppercase">Experiencia Escénica</div>
-                  </div>
-                  <div className="p-2.5 rounded-xl bg-white/[0.04]">
-                    <div className="text-lg font-serif font-bold text-[#f3d37a]">30-40 Bodas</div>
-                    <div className="text-[10px] text-slate-400 uppercase">Al Año</div>
-                  </div>
-                </div>
+                <a
+                  href={CONTACT_INFO.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-2.5 py-1 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-200 font-mono text-[10px] uppercase transition-colors"
+                >
+                  Instagram ↗
+                </a>
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Right Column: Bio Narrative */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="lg:col-span-7 space-y-6"
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#d4af37]/10 border border-[#d4af37]/30 text-[#f3d37a] text-xs font-semibold tracking-wider uppercase">
-              <User className="w-3.5 h-3.5 text-[#d4af37]" />
-              Conoce al Ilusionista
+          <div className="lg:col-span-7 space-y-6">
+            <div>
+              <span className="text-xs font-mono uppercase tracking-widest text-champagne block mb-2">
+                Biografía Profesional
+              </span>
+              <h2 className="text-3xl sm:text-5xl font-serif font-bold text-white tracking-tight">
+                ¿Quién soy?
+              </h2>
             </div>
 
-            <h2 className="text-3xl sm:text-5xl font-serif font-extrabold text-white tracking-tight">
-              ¿Quién es <span className="gold-gradient-text">Pablo Costas</span>?
-            </h2>
-
-            <div className="space-y-4 text-slate-300 text-base leading-relaxed">
+            <div className="space-y-4 text-zinc-300 text-sm leading-relaxed">
               <p>
-                Mi nombre es Pablo Costas, conocido artísticamente como <strong>"Magicoster"</strong>. 
-                Llevo más de 15 años sobre los escenarios realizando cientos de eventos corporativos, magia para multinacionales, 
-                conferencias, celebraciones privadas, galas y bodas de autor por toda España y Europa.
+                Mi nombre es <strong>Pablo Costas</strong>, conocido profesionalmente como <strong>"magicoster"</strong>, y soy ilusionista profesional. Cuento con más de 15 años de experiencia sobre los escenarios realizando cientos de eventos corporativos, magia para multinacionales, conferencias, celebraciones privadas y bodas de autor (entre 30 y 40 al año).
               </p>
               <p>
-                He tenido el privilegio de actuar para marcas de prestigio internacional como{' '}
-                <strong className="text-white">Cartier, Rolex, Netflix, BMW, KPMG, Bankinter, Ford, Hugo BOSS, Microsoft y Deloitte</strong>. 
-                Asimismo, ejerzo habitualmente como presentador y maestro de ceremonias en galas de premios y congresos corporativos para 
-                Renfe, Samsung, La Salle y The Valley Tech.
+                He actuado para firmas internacionales de máximo prestigio como <strong className="text-white">Cartier, Rolex, Netflix, BMW, KPMG, Bankinter, Ford, Hugo BOSS, Microsoft y Deloitte</strong>.
               </p>
               <p>
-                Todas las semanas presento entre 4 y 5 funciones de mi espectáculo personal{' '}
-                <strong className="text-[#f3d37a]">"El Rey de Trébol"</strong> en la prestigiosa{' '}
-                <strong>Sala Houdini de Madrid</strong>, el teatro de magia más grande e influyente de Europa.
+                También ejerzo habitualmente como presentador y maestro de ceremonias en galas, entregas de premios y graduaciones para <strong>Renfe, Samsung, La Salle y premios Best!N</strong>, fusionando protocolo y asombro.
+              </p>
+              <p>
+                Todas las semanas presento entre 4 y 5 pases de mi show personal <strong>"El Rey de Trébol"</strong> en la <strong>Sala Houdini de Madrid</strong>, el teatro de magia más grande de Europa.
               </p>
             </div>
 
             {/* Credential checklist */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-              <div className="flex items-center gap-2.5 text-sm text-slate-200">
-                <Check className="w-4 h-4 text-[#d4af37]" />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 border-t border-zinc-800/80">
+              <div className="flex items-center gap-2 text-xs text-zinc-200">
+                <Check className="w-3.5 h-3.5 text-champagne shrink-0" />
                 <span>Equipo del Festival <em>León Vive la Magia</em></span>
               </div>
-              <div className="flex items-center gap-2.5 text-sm text-slate-200">
-                <Check className="w-4 h-4 text-[#d4af37]" />
+              <div className="flex items-center gap-2 text-xs text-zinc-200">
+                <Check className="w-3.5 h-3.5 text-champagne shrink-0" />
                 <span>Shows en Español e Inglés (Bilingüe)</span>
               </div>
-              <div className="flex items-center gap-2.5 text-sm text-slate-200">
-                <Check className="w-4 h-4 text-[#d4af37]" />
-                <span>Cero clichés: magia moderna y adulta</span>
+              <div className="flex items-center gap-2 text-xs text-zinc-200">
+                <Check className="w-3.5 h-3.5 text-champagne shrink-0" />
+                <span>Estilo moderno: cero clichés infantiles</span>
               </div>
-              <div className="flex items-center gap-2.5 text-sm text-slate-200">
-                <Check className="w-4 h-4 text-[#d4af37]" />
+              <div className="flex items-center gap-2 text-xs text-zinc-200">
+                <Check className="w-3.5 h-3.5 text-champagne shrink-0" />
                 <span>+720.000 seguidores en redes sociales</span>
               </div>
             </div>
 
-            <div className="pt-4 flex flex-wrap items-center gap-4">
+            <div className="pt-2 flex flex-wrap items-center gap-3">
               <a
-                href={CONTACT_INFO.instagram}
+                href={CONTACT_INFO.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-pink-600 via-rose-500 to-amber-500 text-white font-semibold text-xs tracking-wider uppercase hover:shadow-lg transition-all"
+                className="px-5 py-2.5 rounded bg-white hover:bg-zinc-200 text-zinc-950 font-semibold text-xs uppercase tracking-wider transition-colors"
               >
-                <InstagramIcon className="w-4 h-4" />
-                <span>Seguir en Instagram @magicoster</span>
+                Hablar por WhatsApp
               </a>
-
               <a
                 href="#contacto"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 text-white font-medium text-xs tracking-wider uppercase border border-white/20 transition-all"
+                className="px-5 py-2.5 rounded border border-zinc-700 hover:border-zinc-500 text-zinc-200 font-medium text-xs uppercase tracking-wider transition-colors"
               >
-                <span>Solicitar Disponibilidad</span>
+                Solicitar fecha para evento
               </a>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
