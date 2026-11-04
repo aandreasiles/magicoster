@@ -42,7 +42,7 @@ export const EmpresasPage = () => {
                 to="/contacto"
                 className="inline-flex items-center gap-2 px-6 py-3.5 rounded-md bg-white hover:bg-zinc-200 text-zinc-950 font-semibold text-xs uppercase tracking-wider transition-colors shadow-md"
               >
-                <span>Pedir Presupuesto para Empresa</span>
+                <span>Contactar para mi empresa</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>

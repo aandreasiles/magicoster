@@ -25,7 +25,7 @@ export const BookingContact = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="max-w-2xl mb-12">
           <span className="eyebrow block mb-2">
-            Presupuesto & Disponibilidad
+            Contacto & Disponibilidad
           </span>
           <h2 className="heading-lg mb-4">
             Contacta directamente
@@ -223,7 +223,7 @@ export const BookingContact = () => {
                     className="w-full flex items-center justify-center gap-2 py-3 rounded bg-white hover:bg-zinc-200 text-zinc-950 font-semibold text-xs uppercase tracking-wider transition-colors cursor-pointer"
                   >
                     <Send className="w-3.5 h-3.5" />
-                    <span>Enviar consulta de presupuesto</span>
+                    <span>Enviar consulta</span>
                   </button>
                 </form>
               )}

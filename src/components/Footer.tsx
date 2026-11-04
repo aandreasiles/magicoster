@@ -35,7 +35,7 @@ export const Footer = () => {
             to="/contacto"
             className="inline-flex items-center gap-2 px-7 py-4 rounded-full bg-antique-gold hover:bg-antique-light text-zinc-950 font-semibold text-xs uppercase tracking-wider transition-colors shadow-[0_0_40px_-8px_rgba(203,168,110,0.7)]"
           >
-            Pedir presupuesto <ArrowUpRight className="w-4 h-4" />
+            Contactar <ArrowUpRight className="w-4 h-4" />
           </Link>
           <a
             href={CONTACT_INFO.whatsappUrl}

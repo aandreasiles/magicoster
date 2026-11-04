@@ -64,7 +64,7 @@ export const Services = () => {
                   href="#contacto"
                   className="w-full inline-flex items-center justify-center gap-1.5 py-2.5 rounded border border-zinc-700 hover:border-zinc-500 text-xs font-semibold uppercase tracking-wider text-white transition-colors"
                 >
-                  <span>Pedir presupuesto</span>
+                  <span>Contactar</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </a>
               </div>
