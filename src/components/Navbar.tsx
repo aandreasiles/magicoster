@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { NavLink, Link } from 'react-router-dom';
 import { Menu, X, ArrowUpRight, Phone } from 'lucide-react';
 import { CONTACT_INFO, SHOW_DETAILS } from '../data/magicData';
 
@@ -6,83 +7,95 @@ export const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   const links = [
-    { label: 'El Rey de Trébol', href: '#espectaculo' },
-    { label: 'Empresas', href: '#servicios' },
-    { label: 'Bodas', href: '#servicios' },
-    { label: 'Vídeos', href: '#videos' },
-    { label: 'Sobre mí', href: '#sobre-mi' },
-    { label: 'Contacto', href: '#contacto' },
+    { label: 'Inicio', path: '/' },
+    { label: 'El Rey de Trébol', path: '/el-rey-de-trebol' },
+    { label: 'Empresas', path: '/empresas' },
+    { label: 'Bodas', path: '/bodas' },
+    { label: 'Coctelerías', path: '/coctelerias' },
+    { label: 'Vídeos & Fotos', path: '/galeria' },
+    { label: 'Sobre mí', path: '/sobre-mi' },
+    { label: 'Contacto', path: '/contacto' },
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-[#08080a]/90 backdrop-blur-md border-b border-zinc-800/80">
+    <header className="sticky top-0 z-50 bg-[#08080a]/95 backdrop-blur-md border-b border-zinc-800/80">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
         {/* Brand */}
-        <a href="#" className="flex items-baseline gap-2 group">
-          <span className="font-serif text-lg tracking-wider font-semibold text-white group-hover:text-champagne transition-colors">
+        <Link to="/" className="flex items-baseline gap-2 group">
+          <span className="font-serif text-lg tracking-wider font-semibold text-white group-hover:text-antique-gold transition-colors">
             PABLO COSTAS
           </span>
-          <span className="text-[11px] font-mono text-zinc-400 uppercase tracking-widest hidden sm:inline">
+          <span className="text-[10px] sm:text-[11px] font-mono text-zinc-400 uppercase tracking-widest hidden sm:inline">
             • Ilusionista
           </span>
-        </a>
+        </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-7">
+        <nav className="hidden lg:flex items-center gap-5 xl:gap-6">
           {links.map((link) => (
-            <a
+            <NavLink
               key={link.label}
-              href={link.href}
-              className="text-xs font-medium text-zinc-300 hover:text-white transition-colors uppercase tracking-wider"
+              to={link.path}
+              className={({ isActive }) =>
+                `text-xs font-medium uppercase tracking-wider transition-colors ${
+                  isActive ? 'text-antique-gold font-semibold' : 'text-zinc-300 hover:text-white'
+                }`
+              }
             >
               {link.label}
-            </a>
+            </NavLink>
           ))}
         </nav>
 
-        {/* CTA */}
+        {/* Actions Desktop */}
         <div className="hidden sm:flex items-center gap-3">
           <a
             href={SHOW_DETAILS.bookingUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs text-zinc-300 hover:text-champagne transition-colors flex items-center gap-1 font-medium"
+            className="text-xs text-zinc-300 hover:text-antique-gold transition-colors flex items-center gap-1 font-medium"
           >
-            <span>Sala Houdini</span>
+            <span className="hidden xl:inline">Sala Houdini</span>
+            <span className="xl:hidden">Houdini</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
           </a>
-          <a
-            href="#contacto"
-            className="px-4 py-2 rounded-md bg-zinc-100 hover:bg-white text-zinc-950 text-xs font-semibold uppercase tracking-wider transition-colors"
+          <Link
+            to="/contacto"
+            className="px-3.5 py-2 rounded-md bg-white hover:bg-zinc-200 text-zinc-950 text-xs font-semibold uppercase tracking-wider transition-colors"
           >
             Contratar
-          </a>
+          </Link>
         </div>
 
-        {/* Mobile toggle */}
+        {/* Mobile Hamburger toggle */}
         <button
           onClick={() => setOpen(!open)}
-          className="md:hidden p-2 text-zinc-400 hover:text-white"
+          className="lg:hidden p-2 text-zinc-400 hover:text-white rounded-md focus:outline-none"
           aria-label="Abrir menú"
         >
-          {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile Drawer */}
       {open && (
-        <div className="md:hidden bg-[#0c0c0e] border-b border-zinc-800 px-6 py-6 space-y-4">
+        <div className="lg:hidden bg-[#0c0c10] border-b border-zinc-800 px-6 py-6 space-y-3">
           {links.map((link) => (
-            <a
+            <NavLink
               key={link.label}
-              href={link.href}
+              to={link.path}
               onClick={() => setOpen(false)}
-              className="block text-sm font-medium text-zinc-200 hover:text-white py-1 uppercase tracking-wider"
+              className={({ isActive }) =>
+                `block text-sm font-medium py-1.5 uppercase tracking-wider transition-colors ${
+                  isActive ? 'text-antique-gold font-bold' : 'text-zinc-300 hover:text-white'
+                }`
+              }
             >
               {link.label}
-            </a>
+            </NavLink>
           ))}
-          <div className="pt-4 border-t border-zinc-800 flex flex-col gap-2">
+
+          <div className="pt-4 border-t border-zinc-800 flex flex-col gap-2.5">
             <a
               href={SHOW_DETAILS.bookingUrl}
               target="_blank"
@@ -93,7 +106,7 @@ export const Navbar = () => {
             </a>
             <a
               href={`tel:${CONTACT_INFO.phoneRaw}`}
-              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-md bg-champagne text-zinc-950 text-xs font-semibold uppercase tracking-wider"
+              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-md bg-antique-gold text-zinc-950 text-xs font-semibold uppercase tracking-wider"
             >
               <Phone className="w-3.5 h-3.5" />
               <span>Llamar: {CONTACT_INFO.phone}</span>

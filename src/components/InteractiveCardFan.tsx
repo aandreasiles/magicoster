@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowUpRight, Check, Sparkles } from 'lucide-react';
+import { ArrowRight, Check, Sparkles } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { SERVICES_DATA, SHOW_DETAILS } from '../data/magicData';
 
 interface MagicCard {
@@ -15,7 +16,8 @@ interface MagicCard {
   image: string;
   points: string[];
   actionText: string;
-  actionUrl: string;
+  pageRoute: string;
+  isExternal?: boolean;
   rotation: number;
   offsetY: number;
 }
@@ -28,7 +30,7 @@ const DECK_CARDS: MagicCard[] = [
     suitColor: '#cba86e',
     category: 'Teatro Houdini',
     title: 'El Rey de Trébol',
-    tagline: 'Espectáculo de magia de cerca en Sala Houdini',
+    tagline: 'Espectáculo de magia de cerca en Sala Houdini Madrid',
     description: 'El show más exclusivo de Madrid, limitado a solo 25 personas por pase. Humor elegante, mentalismo y asombro a un metro de tus ojos en el teatro de magia más grande de Europa.',
     image: 'https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1440,h=960,fit=crop/mxBXBX7KznSE6Zr6/uli-1051-0255-AzGN0PE9VVcJrwO5.jpg',
     points: [
@@ -37,10 +39,10 @@ const DECK_CARDS: MagicCard[] = [
       'Pases semanales: Viernes 19:45h, Sábados 17:30h/20:15h, Domingos 17:30h',
       'Aforo reducido de 25 localidades'
     ],
-    actionText: 'Comprar Entradas en Atrápalo',
-    actionUrl: SHOW_DETAILS.bookingUrl,
-    rotation: -14,
-    offsetY: 16
+    actionText: 'Ver detalles de "El Rey de Trébol"',
+    pageRoute: '/el-rey-de-trebol',
+    rotation: -12,
+    offsetY: 12
   },
   {
     id: 'empresas',
@@ -53,9 +55,9 @@ const DECK_CARDS: MagicCard[] = [
     description: SERVICES_DATA[0].description,
     image: SERVICES_DATA[0].image,
     points: SERVICES_DATA[0].points,
-    actionText: 'Presupuesto para Empresa',
-    actionUrl: '#contacto',
-    rotation: -7,
+    actionText: 'Ver magia para Empresas & Galas',
+    pageRoute: '/empresas',
+    rotation: -6,
     offsetY: 4
   },
   {
@@ -69,8 +71,8 @@ const DECK_CARDS: MagicCard[] = [
     description: SERVICES_DATA[1].description,
     image: SERVICES_DATA[1].image,
     points: SERVICES_DATA[1].points,
-    actionText: 'Consultar Fecha de Boda',
-    actionUrl: '#contacto',
+    actionText: 'Ver magia para Bodas',
+    pageRoute: '/bodas',
     rotation: 0,
     offsetY: 0
   },
@@ -85,9 +87,9 @@ const DECK_CARDS: MagicCard[] = [
     description: SERVICES_DATA[2].description,
     image: SERVICES_DATA[2].image,
     points: SERVICES_DATA[2].points,
-    actionText: 'Magia en mi Local',
-    actionUrl: '#contacto',
-    rotation: 7,
+    actionText: 'Ver magia en Coctelerías',
+    pageRoute: '/coctelerias',
+    rotation: 6,
     offsetY: 4
   },
   {
@@ -106,10 +108,10 @@ const DECK_CARDS: MagicCard[] = [
       'Magia tecnológica con los teléfonos de los asistentes',
       'Espectáculos bilingües en Español e Inglés'
     ],
-    actionText: 'Solicitar Propuesta a Medida',
-    actionUrl: '#contacto',
-    rotation: 14,
-    offsetY: 16
+    actionText: 'Ver biografía y trayectoria',
+    pageRoute: '/sobre-mi',
+    rotation: 12,
+    offsetY: 12
   }
 ];
 
@@ -120,86 +122,88 @@ export const InteractiveCardFan = () => {
   const selectedCard = DECK_CARDS.find((c) => c.id === selectedCardId) || DECK_CARDS[0];
 
   return (
-    <section id="experiencias" className="py-24 border-b border-zinc-800/80 bg-[#060608] relative overflow-hidden">
+    <section id="baraja" className="py-16 sm:py-24 border-b border-zinc-800/80 bg-[#060608] relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-xs font-mono uppercase tracking-widest text-antique-gold mb-3">
+        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-[11px] font-mono uppercase tracking-widest text-antique-gold mb-3">
             <Sparkles className="w-3.5 h-3.5 text-antique-gold" />
             <span>Elige tu experiencia</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-serif font-bold text-white tracking-tight">
             Despliega la baraja
           </h2>
-          <p className="text-zinc-400 text-sm mt-3 leading-relaxed">
-            Cada carta representa una de mis facetas artísticas. Pasa el cursor y selecciona una carta para conocer todos los detalles.
+          <p className="text-zinc-400 text-xs sm:text-sm mt-2 sm:mt-3 leading-relaxed">
+            Cada naipe abre una sección dedicada. Toca o haz clic sobre cualquier carta para descubrirla.
           </p>
         </div>
 
-        {/* Tactile Fan of Cards */}
-        <div className="flex justify-center items-end min-h-[220px] sm:min-h-[260px] pb-6 pt-4 select-none relative">
-          <div className="flex items-end justify-center -space-x-8 sm:-space-x-12">
-            {DECK_CARDS.map((card) => {
-              const isSelected = selectedCardId === card.id;
-              const isHovered = hoveredCardId === card.id;
+        {/* Mobile Horizontal / Fan responsive container */}
+        <div className="w-full overflow-x-auto pb-4 sm:overflow-visible no-scrollbar">
+          <div className="flex justify-center items-end min-h-[200px] sm:min-h-[260px] pt-4 select-none relative min-w-[340px]">
+            <div className="flex items-end justify-center -space-x-4 sm:-space-x-10 md:-space-x-12">
+              {DECK_CARDS.map((card) => {
+                const isSelected = selectedCardId === card.id;
+                const isHovered = hoveredCardId === card.id;
 
-              return (
-                <motion.button
-                  key={card.id}
-                  onClick={() => setSelectedCardId(card.id)}
-                  onMouseEnter={() => setHoveredCardId(card.id)}
-                  onMouseLeave={() => setHoveredCardId(null)}
-                  whileHover={{ y: -28, scale: 1.06, zIndex: 30 }}
-                  animate={{
-                    rotate: isSelected ? 0 : card.rotation,
-                    y: isSelected ? -24 : isHovered ? -28 : card.offsetY,
-                    zIndex: isSelected ? 20 : isHovered ? 25 : 10,
-                  }}
-                  transition={{ type: 'spring', stiffness: 280, damping: 22 }}
-                  className={`w-28 sm:w-36 h-44 sm:h-56 rounded-xl p-3 flex flex-col justify-between text-left cursor-pointer transition-colors relative card-shadow ${
-                    isSelected
-                      ? 'bg-[#181822] ring-2 ring-antique-gold shadow-[0_0_25px_rgba(203,168,110,0.3)]'
-                      : 'bg-[#101015] hover:bg-[#14141c] border border-zinc-800'
-                  }`}
-                  aria-label={card.title}
-                >
-                  {/* Top-left card index */}
-                  <div className="leading-none">
-                    <div className="font-serif font-bold text-sm sm:text-base text-white">
-                      {card.rank}
+                return (
+                  <motion.button
+                    key={card.id}
+                    onClick={() => setSelectedCardId(card.id)}
+                    onMouseEnter={() => setHoveredCardId(card.id)}
+                    onMouseLeave={() => setHoveredCardId(null)}
+                    whileHover={{ y: -24, scale: 1.05, zIndex: 30 }}
+                    animate={{
+                      rotate: isSelected ? 0 : card.rotation,
+                      y: isSelected ? -20 : isHovered ? -24 : card.offsetY,
+                      zIndex: isSelected ? 20 : isHovered ? 25 : 10,
+                    }}
+                    transition={{ type: 'spring', stiffness: 280, damping: 22 }}
+                    className={`w-24 sm:w-36 h-36 sm:h-56 rounded-xl p-2 sm:p-3 flex flex-col justify-between text-left cursor-pointer transition-colors relative card-shadow shrink-0 ${
+                      isSelected
+                        ? 'bg-[#181822] ring-2 ring-antique-gold shadow-[0_0_25px_rgba(203,168,110,0.3)]'
+                        : 'bg-[#101015] hover:bg-[#14141c] border border-zinc-800'
+                    }`}
+                    aria-label={card.title}
+                  >
+                    {/* Top-left card index */}
+                    <div className="leading-none">
+                      <div className="font-serif font-bold text-xs sm:text-base text-white">
+                        {card.rank}
+                      </div>
+                      <div className="text-[10px] sm:text-sm font-serif" style={{ color: card.suitColor }}>
+                        {card.suit}
+                      </div>
                     </div>
-                    <div className="text-xs sm:text-sm font-serif" style={{ color: card.suitColor }}>
-                      {card.suit}
-                    </div>
-                  </div>
 
-                  {/* Card Center Symbol */}
-                  <div className="text-center">
-                    <div className="text-2xl sm:text-3xl font-serif mb-1" style={{ color: card.suitColor }}>
-                      {card.suit}
+                    {/* Card Center Symbol */}
+                    <div className="text-center px-1">
+                      <div className="text-xl sm:text-3xl font-serif mb-0.5 sm:mb-1" style={{ color: card.suitColor }}>
+                        {card.suit}
+                      </div>
+                      <div className="text-[8px] sm:text-[11px] font-mono uppercase tracking-wider text-zinc-300 font-semibold line-clamp-2">
+                        {card.category}
+                      </div>
                     </div>
-                    <div className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-zinc-300 font-semibold line-clamp-2">
-                      {card.category}
-                    </div>
-                  </div>
 
-                  {/* Bottom-right card index inverted */}
-                  <div className="leading-none self-end rotate-180">
-                    <div className="font-serif font-bold text-sm sm:text-base text-white">
-                      {card.rank}
+                    {/* Bottom-right card index inverted */}
+                    <div className="leading-none self-end rotate-180">
+                      <div className="font-serif font-bold text-xs sm:text-base text-white">
+                        {card.rank}
+                      </div>
+                      <div className="text-[10px] sm:text-sm font-serif" style={{ color: card.suitColor }}>
+                        {card.suit}
+                      </div>
                     </div>
-                    <div className="text-xs sm:text-sm font-serif" style={{ color: card.suitColor }}>
-                      {card.suit}
-                    </div>
-                  </div>
 
-                  {/* Active pip indicator */}
-                  {isSelected && (
-                    <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-antique-gold shadow-sm" />
-                  )}
-                </motion.button>
-              );
-            })}
+                    {/* Active pip indicator */}
+                    {isSelected && (
+                      <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-antique-gold shadow-sm" />
+                    )}
+                  </motion.button>
+                );
+              })}
+            </div>
           </div>
         </div>
 
@@ -210,27 +214,27 @@ export const InteractiveCardFan = () => {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -15 }}
-            transition={{ duration: 0.3 }}
-            className="mt-8 rounded-xl border border-zinc-800 bg-zinc-900/90 overflow-hidden shadow-2xl"
+            transition={{ duration: 0.25 }}
+            className="mt-6 sm:mt-8 rounded-xl border border-zinc-800 bg-zinc-900/90 overflow-hidden shadow-2xl"
           >
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center p-6 sm:p-10">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center p-5 sm:p-8 lg:p-10">
               {/* Left Column: Information */}
-              <div className="lg:col-span-7 space-y-5">
+              <div className="lg:col-span-7 space-y-4 sm:space-y-5">
                 <div className="flex items-center gap-3">
-                  <span className="w-8 h-8 rounded-full bg-zinc-950 border border-zinc-800 flex items-center justify-center font-serif text-sm font-bold" style={{ color: selectedCard.suitColor }}>
+                  <span className="w-8 h-8 rounded-full bg-zinc-950 border border-zinc-800 flex items-center justify-center font-serif text-sm font-bold shrink-0" style={{ color: selectedCard.suitColor }}>
                     {selectedCard.suit}
                   </span>
                   <div>
-                    <span className="text-[11px] font-mono uppercase tracking-widest text-antique-gold block">
+                    <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-widest text-antique-gold block">
                       {selectedCard.category}
                     </span>
-                    <h3 className="text-2xl sm:text-3xl font-serif font-bold text-white tracking-tight">
+                    <h3 className="text-xl sm:text-3xl font-serif font-bold text-white tracking-tight">
                       {selectedCard.title}
                     </h3>
                   </div>
                 </div>
 
-                <p className="text-sm font-serif italic text-antique-light/90">
+                <p className="text-xs sm:text-sm font-serif italic text-antique-light/90">
                   "{selectedCard.tagline}"
                 </p>
 
@@ -238,7 +242,7 @@ export const InteractiveCardFan = () => {
                   {selectedCard.description}
                 </p>
 
-                <ul className="space-y-2 pt-2 border-t border-zinc-800">
+                <ul className="space-y-1.5 sm:space-y-2 pt-2 border-t border-zinc-800">
                   {selectedCard.points.map((pt, i) => (
                     <li key={i} className="flex items-start gap-2 text-xs text-zinc-200">
                       <Check className="w-3.5 h-3.5 text-antique-gold shrink-0 mt-0.5" />
@@ -247,16 +251,25 @@ export const InteractiveCardFan = () => {
                   ))}
                 </ul>
 
-                <div className="pt-4">
-                  <a
-                    href={selectedCard.actionUrl}
-                    target={selectedCard.actionUrl.startsWith('http') ? '_blank' : '_self'}
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-md bg-white hover:bg-zinc-200 text-zinc-950 font-semibold text-xs uppercase tracking-wider transition-colors shadow-md"
+                <div className="pt-2 sm:pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                  <Link
+                    to={selectedCard.pageRoute}
+                    className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-md bg-white hover:bg-zinc-200 text-zinc-950 font-semibold text-xs uppercase tracking-wider transition-colors shadow-md"
                   >
                     <span>{selectedCard.actionText}</span>
-                    <ArrowUpRight className="w-3.5 h-3.5" />
-                  </a>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+
+                  {selectedCard.id === 'houdini' && (
+                    <a
+                      href={SHOW_DETAILS.bookingUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-md bg-zinc-800 hover:bg-zinc-700 text-zinc-200 font-medium text-xs uppercase tracking-wider transition-colors"
+                    >
+                      <span>Entradas en Atrápalo ↗</span>
+                    </a>
+                  )}
                 </div>
               </div>
 

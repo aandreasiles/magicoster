@@ -1,51 +1,50 @@
+import { useEffect } from 'react';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
-import { Hero } from './components/Hero';
-import { ClientMarquee } from './components/ClientMarquee';
-import { InteractiveCardFan } from './components/InteractiveCardFan';
-import { ShowHoudiniTicket } from './components/ShowHoudiniTicket';
-import { VideoGallery } from './components/VideoGallery';
-import { PhotoGallery } from './components/PhotoGallery';
-import { Testimonials } from './components/Testimonials';
-import { AboutMe } from './components/AboutMe';
-import { BookingContact } from './components/BookingContact';
 import { Footer } from './components/Footer';
+import { HomePage } from './pages/HomePage';
+import { HoudiniPage } from './pages/HoudiniPage';
+import { EmpresasPage } from './pages/EmpresasPage';
+import { BodasPage } from './pages/BodasPage';
+import { CocteleriasPage } from './pages/CocteleriasPage';
+import { GaleriaPage } from './pages/GaleriaPage';
+import { SobreMiPage } from './pages/SobreMiPage';
+import { ContactoPage } from './pages/ContactoPage';
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 export function App() {
   return (
-    <div className="min-h-screen bg-[#040406] text-zinc-100 flex flex-col font-sans">
-      <Navbar />
+    <BrowserRouter basename="/demos">
+      <ScrollToTop />
+      <div className="min-h-screen bg-[#040406] text-zinc-100 flex flex-col font-sans">
+        <Navbar />
 
-      <main className="flex-1">
-        {/* 1. Theatrical Hero Marquee with Signature */}
-        <Hero />
+        <main className="flex-1">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/el-rey-de-trebol" element={<HoudiniPage />} />
+            <Route path="/empresas" element={<EmpresasPage />} />
+            <Route path="/bodas" element={<BodasPage />} />
+            <Route path="/coctelerias" element={<CocteleriasPage />} />
+            <Route path="/galeria" element={<GaleriaPage />} />
+            <Route path="/sobre-mi" element={<SobreMiPage />} />
+            <Route path="/contacto" element={<ContactoPage />} />
+            <Route path="*" element={<HomePage />} />
+          </Routes>
+        </main>
 
-        {/* 2. Client Roster */}
-        <ClientMarquee />
-
-        {/* 3. The Interactive Playing Card Deck / Fan */}
-        <InteractiveCardFan />
-
-        {/* 4. The Perforated Theatrical Ticket for Sala Houdini */}
-        <ShowHoudiniTicket />
-
-        {/* 5. Live Performances Video Gallery */}
-        <VideoGallery />
-
-        {/* 6. Authentic Stage Photography */}
-        <PhotoGallery />
-
-        {/* 7. Celebrity & Verified Reviews */}
-        <Testimonials />
-
-        {/* 8. The Magician Bio */}
-        <AboutMe />
-
-        {/* 9. Booking Inquiry & Direct Channels */}
-        <BookingContact />
-      </main>
-
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }
 
