@@ -8,21 +8,27 @@ export default {
   theme: {
     extend: {
       colors: {
-        dark: {
-          950: '#070708',
-          900: '#0c0c0e',
-          850: '#111114',
-          800: '#17171b',
-          700: '#232329',
+        stage: {
+          950: '#040406',
+          900: '#08080c',
+          850: '#0d0d12',
+          800: '#14141c',
+          700: '#20202c',
         },
-        champagne: {
-          light: '#e8d8be',
-          DEFAULT: '#c5a880',
-          dark: '#a08560',
+        antique: {
+          gold: '#cba86e',
+          light: '#f1e2c8',
+          brass: '#8e703f',
+          dark: '#544222',
+        },
+        velvet: {
+          crimson: '#631620',
+          dark: '#3d0910',
         }
       },
       fontFamily: {
-        serif: ['"Playfair Display"', 'Georgia', 'serif'],
+        serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+        cinzel: ['"Cinzel"', 'serif'],
         sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
       },
     },

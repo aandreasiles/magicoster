@@ -3,61 +3,69 @@ import { TESTIMONIALS_DATA } from '../data/magicData';
 
 export const Testimonials = () => {
   return (
-    <section className="py-20 border-b border-zinc-800/60 bg-[#0a0a0c]">
+    <section className="py-24 border-b border-zinc-800/80 bg-[#08080c] relative">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="max-w-2xl mb-12">
-          <span className="text-xs font-mono uppercase tracking-widest text-champagne block mb-2">
-            Opiniones y Críticas
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <span className="text-xs font-mono uppercase tracking-widest text-antique-gold block mb-2">
+            Crítica & Público
           </span>
-          <h2 className="text-3xl sm:text-5xl font-serif font-bold text-white tracking-tight mb-4">
-            Testimonios de espectadores
+          <h2 className="text-3xl sm:text-5xl font-serif font-bold text-white tracking-tight">
+            Opiniones de quienes lo han vivido
           </h2>
-          <p className="text-zinc-400 text-sm">
-            Experiencias de presentadores de televisión, directivos de empresas y asistentes a Sala Houdini.
+          <p className="text-zinc-400 text-sm mt-3">
+            Más de 1.030 reseñas verificadas en Atrápalo y Google con una puntuación media de 4.9 sobre 5.
           </p>
         </div>
 
         {/* Featured Celebrity Testimonial */}
-        <div className="p-8 sm:p-10 rounded-lg bg-zinc-900 border border-zinc-800 mb-8 relative">
-          <Quote className="w-8 h-8 text-champagne mb-4 opacity-70" />
-          <blockquote className="text-xl sm:text-2xl font-serif text-white font-medium mb-6 leading-relaxed">
+        <div className="p-8 sm:p-12 rounded-2xl bg-gradient-to-b from-[#14141c] to-[#0c0c12] border border-antique-gold/30 mb-10 relative overflow-hidden">
+          <Quote className="w-12 h-12 text-antique-gold/20 absolute top-6 right-6 pointer-events-none" />
+
+          <blockquote className="text-2xl sm:text-3xl font-serif text-white font-medium mb-6 leading-relaxed max-w-4xl">
             "{TESTIMONIALS_DATA[0].quote}"
           </blockquote>
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-4 border-t border-zinc-800 text-xs">
+
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-6 border-t border-zinc-800 text-xs">
             <div>
-              <span className="font-semibold text-white">{TESTIMONIALS_DATA[0].author}</span>
-              <span className="text-zinc-400 ml-2">({TESTIMONIALS_DATA[0].role})</span>
+              <span className="font-serif font-bold text-base text-antique-light block">
+                {TESTIMONIALS_DATA[0].author}
+              </span>
+              <span className="text-zinc-400 font-mono text-[11px]">
+                {TESTIMONIALS_DATA[0].role} • {TESTIMONIALS_DATA[0].source}
+              </span>
             </div>
-            <div className="flex items-center gap-1 text-champagne">
+
+            <div className="flex items-center gap-1.5 text-antique-gold">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-3.5 h-3.5 fill-champagne" />
+                <Star key={i} className="w-4 h-4 fill-antique-gold" />
               ))}
-              <span className="ml-1 font-mono text-zinc-300">5 / 5</span>
+              <span className="font-mono text-zinc-300 ml-1 font-semibold">5 / 5 estrellas</span>
             </div>
           </div>
         </div>
 
-        {/* 4 Spectator Reviews Grid */}
+        {/* Client & Audience reviews */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {TESTIMONIALS_DATA.slice(1).map((item, i) => (
             <div
               key={i}
-              className="p-5 rounded-lg bg-zinc-900/60 border border-zinc-800/80 flex flex-col justify-between"
+              className="p-6 rounded-xl bg-[#0c0c10] border border-zinc-800/80 flex flex-col justify-between hover:border-zinc-700 transition-colors"
             >
               <div>
-                <div className="flex items-center gap-1 text-champagne mb-3">
+                <div className="flex items-center gap-1 text-antique-gold mb-3">
                   {[...Array(item.rating)].map((_, idx) => (
-                    <Star key={idx} className="w-3 h-3 fill-champagne" />
+                    <Star key={idx} className="w-3.5 h-3.5 fill-antique-gold" />
                   ))}
                 </div>
-                <p className="text-xs text-zinc-300 leading-relaxed italic mb-4">
+                <p className="text-xs text-zinc-300 leading-relaxed font-serif italic mb-6">
                   "{item.quote}"
                 </p>
               </div>
 
-              <div className="pt-3 border-t border-zinc-800 text-[11px]">
-                <div className="font-medium text-white">{item.author}</div>
-                <div className="text-zinc-500 font-mono text-[10px]">{item.source}</div>
+              <div className="pt-4 border-t border-zinc-800/80">
+                <div className="font-serif font-bold text-sm text-white">{item.author}</div>
+                <div className="text-[11px] text-zinc-400 mt-0.5">{item.role}</div>
+                <div className="text-[10px] text-antique-gold font-mono mt-1">{item.source}</div>
               </div>
             </div>
           ))}

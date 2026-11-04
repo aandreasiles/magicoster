@@ -2,25 +2,25 @@ import { CLIENT_LOGOS } from '../data/magicData';
 
 export const ClientMarquee = () => {
   return (
-    <section className="py-12 border-b border-zinc-800/60 bg-[#08080a]">
+    <section className="py-14 border-b border-zinc-800/80 bg-[#060608]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <p className="text-[11px] font-mono uppercase tracking-widest text-zinc-300 text-center mb-8">
-          Marcas e instituciones que confían en su magia
+        <p className="text-[11px] font-mono uppercase tracking-widest text-antique-gold/90 text-center mb-8">
+          ✦ Empresas y marcas que confían en su magia ✦
         </p>
 
-        {/* Clean, fast client logo grid */}
+        {/* Clean, high-contrast client roster */}
         <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-7 gap-3 sm:gap-4 items-center">
           {CLIENT_LOGOS.map((client) => (
             <div
               key={client.name}
-              className="h-16 flex items-center justify-center p-3 rounded-md bg-zinc-900/60 border border-zinc-800/80 hover:border-zinc-700 transition-colors"
+              className="h-16 flex items-center justify-center p-3 rounded-lg bg-zinc-900/40 border border-zinc-800/70 hover:border-antique-gold/40 hover:bg-zinc-900/80 transition-all duration-300 group"
               title={client.name}
             >
               {client.logo ? (
                 <img
                   src={client.logo}
                   alt={client.name}
-                  className="max-h-7 max-w-[90px] object-contain filter grayscale invert opacity-60 hover:opacity-100 transition-opacity"
+                  className="max-h-7 max-w-[90px] object-contain filter grayscale invert opacity-50 group-hover:opacity-100 transition-opacity"
                   loading="lazy"
                   onError={(e) => {
                     (e.target as HTMLElement).style.display = 'none';

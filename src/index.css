@@ -9,28 +9,40 @@
   }
 
   body {
-    background-color: #08080a;
+    background-color: #040406;
     color: #f4f4f5;
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     overflow-x: hidden;
   }
 
-  /* Minimal clean scrollbar */
+  /* Custom theatre scrollbar */
   ::-webkit-scrollbar {
     width: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #08080a;
+    background: #040406;
   }
   ::-webkit-scrollbar-thumb {
-    background: #27272a;
+    background: #20202c;
     border-radius: 3px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #c5a880;
+    background: #cba86e;
   }
 }
 
-.text-balance {
-  text-wrap: balance;
+/* Authentic playing card shadow */
+.card-shadow {
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.ticket-shadow {
+  box-shadow: 0 20px 45px -12px rgba(0, 0, 0, 0.9), inset 0 0 0 1px rgba(203, 168, 110, 0.25);
+}
+
+/* Antique gold gradient */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #ffffff 0%, #f1e2c8 30%, #cba86e 70%, #8e703f 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
