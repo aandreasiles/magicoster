@@ -5,7 +5,7 @@ export const ClientMarquee = () => {
     <section className="py-12 sm:py-16 border-b border-zinc-800/80 bg-[#060608]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <p className="eyebrow text-antique-gold/90 text-center mb-6 sm:mb-8">
-          ✦ Empresas y marcas que confían en su magia ✦
+          ✦ Empresas y marcas que confían en mi magia ✦
         </p>
 
         {/* Responsive grid */}
