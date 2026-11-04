@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Check, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { SERVICES_DATA, SHOW_DETAILS } from '../data/magicData';
+import { SERVICES_DATA } from '../data/magicData';
+import { useTicketPicker } from './TicketPicker';
 
 interface MagicCard {
   id: string;
@@ -116,6 +117,7 @@ const DECK_CARDS: MagicCard[] = [
 ];
 
 export const InteractiveCardFan = () => {
+  const { open: openTickets } = useTicketPicker();
   const [selectedCardId, setSelectedCardId] = useState<string>('houdini');
   const [hoveredCardId, setHoveredCardId] = useState<string | null>(null);
 
@@ -261,14 +263,12 @@ export const InteractiveCardFan = () => {
                   </Link>
 
                   {selectedCard.id === 'houdini' && (
-                    <a
-                      href={SHOW_DETAILS.bookingUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <button type="button"
+                      onClick={openTickets}
                       className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-md bg-zinc-800 hover:bg-zinc-700 text-zinc-200 font-medium text-xs uppercase tracking-wider transition-colors"
                     >
-                      <span>Entradas en Atrápalo ↗</span>
-                    </a>
+                      <span>Elegir entradas ↗</span>
+                    </button>
                   )}
                 </div>
               </div>

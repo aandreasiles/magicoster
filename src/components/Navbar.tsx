@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { Menu, X, ArrowUpRight, Phone } from 'lucide-react';
-import { CONTACT_INFO, SHOW_DETAILS } from '../data/magicData';
+import { CONTACT_INFO } from '../data/magicData';
+import { useTicketPicker } from './TicketPicker';
 
 export const Navbar = () => {
+  const { open: openTickets } = useTicketPicker();
   const [open, setOpen] = useState(false);
 
   const links = [
@@ -48,16 +50,14 @@ export const Navbar = () => {
 
         {/* Actions Desktop */}
         <div className="hidden sm:flex items-center gap-4 shrink-0">
-          <a
-            href={SHOW_DETAILS.bookingUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+          <button type="button"
+            onClick={openTickets}
             className="whitespace-nowrap text-xs text-zinc-300 hover:text-antique-gold transition-colors flex items-center gap-1 font-medium"
           >
             <span className="hidden xl:inline">Sala Houdini</span>
             <span className="xl:hidden">Houdini</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
-          </a>
+          </button>
           <Link
             to="/contacto"
             className="whitespace-nowrap px-4 py-2 rounded-md bg-white hover:bg-zinc-200 text-zinc-950 text-xs font-semibold uppercase tracking-wider transition-colors"
@@ -95,14 +95,12 @@ export const Navbar = () => {
           ))}
 
           <div className="pt-4 border-t border-zinc-800 flex flex-col gap-2.5">
-            <a
-              href={SHOW_DETAILS.bookingUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+            <button type="button"
+              onClick={openTickets}
               className="w-full text-center py-2.5 rounded-md border border-zinc-700 text-xs font-semibold text-zinc-200 uppercase tracking-wider"
             >
               Entradas Sala Houdini ↗
-            </a>
+            </button>
             <a
               href={`tel:${CONTACT_INFO.phoneRaw}`}
               className="w-full flex items-center justify-center gap-2 py-2.5 rounded-md bg-antique-gold text-zinc-950 text-xs font-semibold uppercase tracking-wider"

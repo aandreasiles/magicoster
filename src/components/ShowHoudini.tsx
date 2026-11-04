@@ -1,7 +1,9 @@
 import { Ticket, MapPin, Users, Star, ArrowUpRight, Clock } from 'lucide-react';
 import { SHOW_DETAILS } from '../data/magicData';
+import { useTicketPicker } from './TicketPicker';
 
 export const ShowHoudini = () => {
+  const { open: openTickets } = useTicketPicker();
   return (
     <section id="espectaculo" className="py-20 border-b border-zinc-800/60 bg-[#0a0a0c]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -92,16 +94,14 @@ export const ShowHoudini = () => {
                 </div>
               </div>
 
-              <a
-                href={SHOW_DETAILS.bookingUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+              <button type="button"
+                onClick={openTickets}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-md bg-white hover:bg-zinc-200 text-zinc-950 font-semibold text-xs uppercase tracking-wider transition-colors shrink-0"
               >
                 <Ticket className="w-4 h-4" />
-                <span>Comprar Entradas en Atrápalo</span>
+                <span>Comprar Entradas</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
-              </a>
+              </button>
             </div>
           </div>
         </div>

@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
+import { TicketPickerProvider } from './components/TicketPicker';
 import { HomePage } from './pages/HomePage';
 import { HoudiniPage } from './pages/HoudiniPage';
 import { EmpresasPage } from './pages/EmpresasPage';
@@ -26,6 +27,7 @@ const basename = import.meta.env.BASE_URL.replace(/\/$/, '');
 export function App() {
   return (
     <BrowserRouter basename={basename}>
+      <TicketPickerProvider>
       <ScrollToTop />
       <div className="min-h-screen bg-[#040406] text-zinc-100 flex flex-col font-sans">
         <Navbar />
@@ -46,6 +48,7 @@ export function App() {
 
         <Footer />
       </div>
+    </TicketPickerProvider>
     </BrowserRouter>
   );
 }

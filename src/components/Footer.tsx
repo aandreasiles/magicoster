@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowUp, ArrowUpRight, Mail, Phone, MapPin, MessageCircle } from 'lucide-react';
-import { CONTACT_INFO, SHOW_DETAILS } from '../data/magicData';
+import { CONTACT_INFO } from '../data/magicData';
+import { useTicketPicker } from './TicketPicker';
 
 const SOCIALS = [
   { label: 'Instagram', href: CONTACT_INFO.instagram },
@@ -9,6 +10,7 @@ const SOCIALS = [
 ];
 
 export const Footer = () => {
+  const { open: openTickets } = useTicketPicker();
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
   return (
@@ -59,11 +61,11 @@ export const Footer = () => {
             <div className="min-w-0"><div className="eyebrow !text-zinc-500 mb-1">E-mail</div>
             <div className="font-serif text-lg md:text-xl text-white group-hover:text-antique-gold transition-colors break-words">{CONTACT_INFO.email}</div></div>
           </a>
-          <a href={SHOW_DETAILS.bookingUrl} target="_blank" rel="noopener noreferrer" className="group bg-[#07070a] p-5 md:p-6 hover:bg-[#0c0c11] transition-colors flex items-center gap-4 md:flex-col md:items-start md:gap-0 text-left">
+          <button type="button" onClick={openTickets} className="group bg-[#07070a] p-5 md:p-6 hover:bg-[#0c0c11] transition-colors flex items-center gap-4 md:flex-col md:items-start md:gap-0 text-left">
             <MapPin className="w-5 h-5 md:w-4 md:h-4 text-antique-gold shrink-0 md:mb-4" />
             <div className="min-w-0"><div className="eyebrow !text-zinc-500 mb-1">En cartel</div>
             <div className="font-serif text-lg md:text-xl text-white group-hover:text-antique-gold transition-colors">El Rey de Trébol · Sala Houdini ↗</div></div>
-          </a>
+          </button>
         </div>
 
         <div className="mt-14 flex flex-col md:flex-row items-center justify-between gap-8">

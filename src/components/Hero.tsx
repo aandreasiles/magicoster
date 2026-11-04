@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Star, Play } from 'lucide-react';
-import { CONTACT_INFO, SHOW_DETAILS } from '../data/magicData';
+import { CONTACT_INFO } from '../data/magicData';
+import { useTicketPicker } from './TicketPicker';
 
 const STATS = [
   { value: '4.9★', label: '+1.030 opiniones' },
@@ -17,6 +18,7 @@ const fade = (delay: number) => ({
 });
 
 export const Hero = () => {
+  const { open: openTickets } = useTicketPicker();
   return (
     <section className="relative isolate overflow-hidden border-b border-zinc-800/80 bg-[#040406]">
       {/* Background photography */}
@@ -58,15 +60,13 @@ export const Hero = () => {
             <span>Contratar</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
-          <a
-            href={SHOW_DETAILS.bookingUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+          <button type="button"
+            onClick={openTickets}
             className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full border border-zinc-600 hover:border-antique-gold hover:text-antique-gold text-zinc-100 font-medium text-xs uppercase tracking-wider backdrop-blur transition-colors"
           >
             <Play className="w-3.5 h-3.5 fill-current" />
             <span>Entradas Sala Houdini</span>
-          </a>
+          </button>
           <a
             href={CONTACT_INFO.whatsappUrl}
             target="_blank"
