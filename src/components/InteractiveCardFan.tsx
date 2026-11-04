@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Check, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { SERVICES_DATA } from '../data/magicData';
+import { SERVICES_DATA, SHOW_IMAGES } from '../data/magicData';
 import { useTicketPicker } from './TicketPicker';
 
 interface MagicCard {
@@ -33,7 +33,7 @@ const DECK_CARDS: MagicCard[] = [
     title: 'El Rey de Trébol',
     tagline: 'Espectáculo de magia de cerca en Sala Houdini Madrid',
     description: 'El show más exclusivo de Madrid, limitado a solo 25 personas por pase. Humor elegante, mentalismo y asombro a un metro de tus ojos en el teatro de magia más grande de Europa.',
-    image: 'https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1440,h=960,fit=crop/mxBXBX7KznSE6Zr6/uli-1051-0255-AzGN0PE9VVcJrwO5.jpg',
+    image: SHOW_IMAGES.room,
     points: [
       'Top Ventas Nacional durante más de 9 años consecutivos',
       'Más de 1.030 opiniones en Atrápalo con nota 4.9 / 5',
