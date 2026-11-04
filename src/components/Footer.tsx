@@ -86,7 +86,7 @@ export const Footer = () => {
         </div>
 
         <div className="mt-12 py-6 border-t border-zinc-800/70 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
-          <p>© 2026 Pablo Costas · Magia de cerca, mentalismo y pickpocket</p>
+          <p>© 2026 Pablo Costas · Magia de cerca y mentalismo</p>
           <button onClick={scrollToTop} className="flex items-center gap-2 hover:text-white transition-colors">
             Volver arriba <ArrowUp className="w-3 h-3" />
           </button>
