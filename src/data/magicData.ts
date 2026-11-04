@@ -260,3 +260,86 @@ export const CONTACT_INFO = {
   location: "Madrid, España (disponible para desplazamientos nacionales e internacionales)",
   languages: "Español e Inglés (Bilingüe)"
 };
+
+const ZYRO = "https://assets.zyrosite.com/cdn-cgi/image/format=auto";
+const ZYRO_ID = "mxBXBX7KznSE6Zr6";
+
+export const SHOW_IMAGES = {
+  poster: `${ZYRO},w=800,fit=scale-down/${ZYRO_ID}/cartel-AVLaB882x2I8eR1l.jpg`,
+  room: `${ZYRO},w=1600,fit=scale-down/${ZYRO_ID}/captura-de-pantalla-2025-06-20-140350-mp8JeBPQOxsakGL4.jpg`,
+};
+
+export const TICKET_LINKS = [
+  {
+    name: "Atrápalo",
+    note: "4.9/5 · +1.030 opiniones",
+    url: "https://www.atrapalo.com/entradas/el-rey-de-trebol-magia-de-cerca_e4844393/",
+    primary: true,
+  },
+  {
+    name: "Fever",
+    note: "Entradas oficiales",
+    url: "https://feverup.com/m/184221",
+    primary: false,
+  },
+  {
+    name: "Entradas.com",
+    note: "Entradas oficiales",
+    url: "https://www.entradas.com/artist/pablo-costas/",
+    primary: false,
+  },
+];
+
+export interface ShowReview {
+  author: string;
+  date: string;
+  profile: string;
+  title: string;
+  text: string;
+}
+
+// Opiniones verificadas de espectadores en Atrápalo
+export const SHOW_REVIEWS: ShowReview[] = [
+  {
+    author: "Almudena García Chacón",
+    date: "21 abril 2025",
+    profile: "Familia",
+    title: "Magia en estado puro",
+    text: "\"El rey de trébol\" es mucho más que un espectáculo de magia: es una experiencia envolvente que combina asombro, humor e inteligencia en un formato pensado para sorprender a públicos de todas las edades. Cada truco está ejecutado con precisión y creatividad, y lo más admirable es cómo logra implicar al público en todo momento, manteniendo la intriga sin perder el ritmo ni la cercanía.",
+  },
+  {
+    author: "Patricia",
+    date: "10 junio 2025",
+    profile: "Familia",
+    title: "Una experiencia inolvidable",
+    text: "Fui con mi madre, que cumplía 70 años, y las dos lo disfrutamos como niñas. La sala es reducida y eso hace que todo sea más cercano, pudimos participar todos. Te hace volver a la niñez y creer en la magia. Se nota que es una persona súper inteligente: ¡se aprendió los nombres de las 20 personas que estábamos en la sala!",
+  },
+  {
+    author: "Pelayo",
+    date: "25 mayo 2025",
+    profile: "Pareja",
+    title: "¡Una tarde mágica!",
+    text: "Muy diferente a los shows de magia grandes en auditorios, mucho más personal y mucho más auténtico. Uno sabe que es un buen espectáculo de magia cuando se olvida de intentar averiguar los trucos y simplemente se deja sorprender por cosas cuya única explicación es llana y pura magia.",
+  },
+  {
+    author: "Anónimo",
+    date: "19 mayo 2025",
+    profile: "Familia",
+    title: "¡Qué pasada!",
+    text: "Buscaba algo diferente, y qué acierto. Nunca habíamos ido a un espectáculo de magia. Pablo eres un crack, qué bien me lo he pasado con mi familia, mis hijas alucinaron. Y eso que haga participar al público, es genial. Muchas gracias de verdad, volveremos.",
+  },
+  {
+    author: "Laura",
+    date: "11 mayo 2025",
+    profile: "Amigos",
+    title: "Impresionante",
+    text: "Fue un espectáculo increíble, nos dejó realmente alucinados con esa manera de mostrar su magia y de conectar con el público. Hemos estado en varios espectáculos en la Sala Houdini y posiblemente sea el mejor de todos, sin duda es digno de ver.",
+  },
+  {
+    author: "Antonio",
+    date: "5 mayo 2025",
+    profile: "Familia",
+    title: "¡Una pequeña maravilla de show!",
+    text: "Fuimos a ver el espectáculo por sorpresa, porque fue el regalo que nos hizo nuestro hijo Mateo por el Día de la Madre, y fue una tarde fantástica. Magia de cerca, de muy cerca, alucinante y además con mucho humor. Pablo es el Tamariz o Pepe Carroll 2.0, de verdad muy bueno.",
+  },
+];
