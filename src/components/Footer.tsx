@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowUp, ArrowUpRight, Mail, Phone, MapPin, MessageCircle } from 'lucide-react';
+import { ArrowUp, ArrowUpRight, Mail, Phone, MapPin } from 'lucide-react';
 import { CONTACT_INFO } from '../data/magicData';
 import { useTicketPicker } from './TicketPicker';
 
@@ -37,14 +37,6 @@ export const Footer = () => {
           >
             Contactar <ArrowUpRight className="w-4 h-4" />
           </Link>
-          <a
-            href={CONTACT_INFO.whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-7 py-4 rounded-full border border-zinc-600 hover:border-antique-gold hover:text-antique-gold text-zinc-100 text-xs font-medium uppercase tracking-wider transition-colors"
-          >
-            <MessageCircle className="w-4 h-4" /> WhatsApp
-          </a>
         </div>
       </div>
 

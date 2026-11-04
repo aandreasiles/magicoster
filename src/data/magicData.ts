@@ -253,7 +253,6 @@ export const CONTACT_INFO = {
   email: "pablo.f.costas@gmail.com",
   phone: "+34 606 286 826",
   phoneRaw: "+34606286826",
-  whatsappUrl: "https://wa.me/34606286826?text=%C2%A1Hola%20Pablo!%20Me%20encantar%C3%ADa%20contar%20con%20tu%20magia%20para%20un%20evento.%20%C2%BFCu%C3%A1ndo%20podr%C3%ADamos%20hablar?",
   instagram: "https://www.instagram.com/magicoster",
   tiktok: "https://www.tiktok.com/@magicoster?lang=es",
   facebook: "https://www.facebook.com/pablo.costas.505",

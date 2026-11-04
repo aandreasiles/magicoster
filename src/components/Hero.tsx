@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Star, Play } from 'lucide-react';
-import { CONTACT_INFO } from '../data/magicData';
 import { useTicketPicker } from './TicketPicker';
 
 const STATS = [
@@ -67,14 +66,6 @@ export const Hero = () => {
             <Play className="w-3.5 h-3.5 fill-current" />
             <span>Entradas Sala Houdini</span>
           </button>
-          <a
-            href={CONTACT_INFO.whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs text-center text-zinc-400 hover:text-antique-gold underline underline-offset-4 transition-colors py-2 sm:px-3"
-          >
-            WhatsApp directo ↗
-          </a>
         </motion.div>
 
         <motion.div {...fade(0.55)} className="mt-14 sm:mt-20 grid grid-cols-2 md:grid-cols-4 gap-px rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-800/60 backdrop-blur max-w-3xl">

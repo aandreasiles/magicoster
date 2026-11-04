@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Mail, Phone, MapPin, Send, MessageSquare, CheckCircle2 } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle2 } from 'lucide-react';
 import { CONTACT_INFO } from '../data/magicData';
 
 export const BookingContact = () => {
@@ -38,22 +38,6 @@ export const BookingContact = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Left Column: Direct Contact Info */}
           <div className="lg:col-span-5 space-y-4">
-            <a
-              href={CONTACT_INFO.whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-4 p-4 rounded-lg bg-emerald-950/30 border border-emerald-700/40 hover:border-emerald-500 transition-colors group"
-            >
-              <div className="w-10 h-10 rounded bg-emerald-600 flex items-center justify-center text-white shrink-0">
-                <MessageSquare className="w-5 h-5 fill-white" />
-              </div>
-              <div>
-                <div className="text-xs font-sans uppercase text-emerald-400">Canal prioritario</div>
-                <div className="text-sm font-semibold text-white group-hover:text-emerald-300 transition-colors">
-                  Escribir por WhatsApp
-                </div>
-              </div>
-            </a>
 
             <div className="p-6 rounded-lg bg-zinc-900 border border-zinc-800 space-y-5">
               <div className="flex items-start gap-3">
@@ -148,7 +132,7 @@ export const BookingContact = () => {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-[11px] font-sans uppercase tracking-wider text-zinc-400 mb-1.5">
-                        Teléfono / WhatsApp *
+                        Teléfono *
                       </label>
                       <input
                         type="tel"

@@ -82,14 +82,6 @@ export const AboutMe = () => {
 
             <div className="pt-2 flex flex-wrap items-center gap-3">
               <a
-                href={CONTACT_INFO.whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-5 py-2.5 rounded bg-white hover:bg-zinc-200 text-zinc-950 font-semibold text-xs uppercase tracking-wider transition-colors"
-              >
-                Hablar por WhatsApp
-              </a>
-              <a
                 href="#contacto"
                 className="px-5 py-2.5 rounded border border-zinc-700 hover:border-zinc-500 text-zinc-200 font-medium text-xs uppercase tracking-wider transition-colors"
               >
