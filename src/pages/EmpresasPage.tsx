@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { PageHero } from '../components/PageHero';
 import { Check, ArrowRight } from 'lucide-react';
 import { ClientMarquee } from '../components/ClientMarquee';
 import { SERVICES_DATA } from '../data/magicData';
@@ -7,30 +8,17 @@ export const EmpresasPage = () => {
   const service = SERVICES_DATA[0];
 
   return (
-    <div className="py-10 sm:py-16">
-      {/* Page Header */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 mb-12">
-        <div className="flex items-center gap-2 text-xs font-mono text-zinc-400 mb-3">
-          <Link to="/" className="hover:text-white transition-colors">Inicio</Link>
-          <span>/</span>
-          <span className="text-antique-gold font-semibold">Empresas</span>
-        </div>
-        <h1 className="text-3xl sm:text-5xl font-serif font-bold text-white tracking-tight mb-4">
-          Magia para Empresas & Galas
-        </h1>
-        <p className="text-zinc-300 text-sm sm:text-base max-w-2xl leading-relaxed">
-          Un ilusionista a medida y personalizado a la marca. Hazlo diferente, hazlo con magia.
-        </p>
-      </div>
+    <div className="pb-16 sm:pb-24">
+      <PageHero crumb="Empresas" eyebrow="Corporativo & Galas" title="Magia para" accent="Empresas & Galas" intro="Un ilusionista a medida y personalizado a la marca. Hazlo diferente, hazlo con magia." image="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1920,h=1080,fit=crop/mxBXBX7KznSE6Zr6/editada-04039-YbNJNLqoLGsgW08M.jpg" suit="♦" />
 
       {/* Main Feature */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 mb-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center rounded-2xl border border-zinc-800 bg-[#0a0a0e] p-6 sm:p-10">
           <div className="lg:col-span-7 space-y-5">
-            <span className="text-xs font-mono uppercase tracking-widest text-antique-gold block">
+            <span className="eyebrow block">
               Corporativo & Eventos de Marca
             </span>
-            <h2 className="text-2xl sm:text-4xl font-serif font-bold text-white">
+            <h2 className="heading-lg">
               Dinamización, Asombro e Involucración
             </h2>
             <p className="text-sm text-zinc-300 leading-relaxed">
@@ -74,7 +62,7 @@ export const EmpresasPage = () => {
 
       {/* Videos corporativos */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 mb-16">
-        <h3 className="text-xl sm:text-2xl font-serif font-bold text-white mb-6">
+        <h3 className="heading-md mb-6">
           En directo en eventos de empresa
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

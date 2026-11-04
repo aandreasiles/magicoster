@@ -1,23 +1,10 @@
-import { Link } from 'react-router-dom';
+import { PageHero } from '../components/PageHero';
 import { ShowHoudiniTicket } from '../components/ShowHoudiniTicket';
 
 export const HoudiniPage = () => {
   return (
-    <div className="py-10 sm:py-16">
-      {/* Intro Header */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 mb-12">
-        <div className="flex items-center gap-2 text-xs font-mono text-zinc-400 mb-3">
-          <Link to="/" className="hover:text-white transition-colors">Inicio</Link>
-          <span>/</span>
-          <span className="text-antique-gold font-semibold">El Rey de Trébol (Sala Houdini)</span>
-        </div>
-        <h1 className="text-3xl sm:text-5xl font-serif font-bold text-white tracking-tight mb-4">
-          "El Rey de Trébol" en Sala Houdini
-        </h1>
-        <p className="text-zinc-300 text-sm sm:text-base max-w-2xl leading-relaxed">
-          El espectáculo más visto y mejor valorado en el teatro de magia más grande de Europa. Una experiencia inolvidable de magia de cerca para solo 25 espectadores.
-        </p>
-      </div>
+    <div className="pb-16 sm:pb-24">
+      <PageHero crumb="El Rey de Trébol (Sala Houdini)" eyebrow="Sala Houdini · Madrid" title="El Rey de Trébol" accent="en Sala Houdini" intro="El espectáculo más visto y mejor valorado en el teatro de magia más grande de Europa. Una experiencia inolvidable de magia de cerca para solo 25 espectadores." image="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1920,h=1080,fit=crop/mxBXBX7KznSE6Zr6/sis-99-AzGNGLeKNXuxBb7L.jpg" suit="♣" />
 
       {/* Ticket Component */}
       <ShowHoudiniTicket />
@@ -26,7 +13,7 @@ export const HoudiniPage = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-6 space-y-5 text-sm text-zinc-300 leading-relaxed">
-            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-white">
+            <h2 className="heading-lg">
               ¿Por qué es un show diferente?
             </h2>
             <p>
@@ -35,7 +22,7 @@ export const HoudiniPage = () => {
             <p>
               En este espectáculo no hay grandes cajas ni trucos antiguos. Verás magia moderna: teléfonos de los propios espectadores que reciben llamadas imposibles, relojes que se desvanecen en sus muñecas, mentalismo interactivo y cartas ejecutadas con una técnica prodigiosa.
             </p>
-            <div className="p-4 rounded-lg bg-zinc-900 border border-zinc-800 text-xs font-mono text-antique-light">
+            <div className="p-4 rounded-lg bg-zinc-900 border border-zinc-800 text-xs font-sans text-antique-light">
               ✦ Dirección: Calle García Luna 13, 28002 Madrid. Sala Houdini (Metro Prosperidad / Alfonso XIII).
             </div>
           </div>

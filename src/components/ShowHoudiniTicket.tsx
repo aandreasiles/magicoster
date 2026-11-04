@@ -7,11 +7,11 @@ export const ShowHoudiniTicket = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-xs font-mono uppercase tracking-widest text-antique-gold mb-3">
+          <div className="eyebrow inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 mb-3">
             <Award className="w-3.5 h-3.5 text-antique-gold" />
             <span>Teatro Permanente en Madrid</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-serif font-bold text-white tracking-tight">
+          <h2 className="heading-lg">
             "El Rey de Trébol"
           </h2>
           <p className="text-zinc-400 text-sm mt-3">
@@ -29,24 +29,24 @@ export const ShowHoudiniTicket = () => {
               <div className="hidden md:block absolute -bottom-3 -right-3 w-6 h-6 rounded-full bg-[#08080c] border border-antique-gold/30" />
 
               <div className="space-y-4">
-                <div className="flex items-center justify-between text-[10px] font-mono uppercase text-antique-gold tracking-widest">
+                <div className="eyebrow flex items-center justify-between">
                   <span>Pase Exclusivo</span>
                   <span>№ 01030</span>
                 </div>
 
                 <div>
-                  <div className="text-xs font-mono uppercase text-zinc-400 tracking-wider">Teatro</div>
+                  <div className="text-xs font-sans uppercase text-zinc-400 tracking-wider">Teatro</div>
                   <div className="text-xl font-serif font-bold text-white tracking-wider">
                     SALA HOUDINI
                   </div>
-                  <div className="text-xs text-zinc-400 font-mono flex items-center gap-1 mt-1">
+                  <div className="text-xs text-zinc-400 font-sans flex items-center gap-1 mt-1">
                     <MapPin className="w-3.5 h-3.5 text-antique-gold shrink-0" />
                     <span>{SHOW_DETAILS.location}</span>
                   </div>
                 </div>
 
                 <div className="pt-2">
-                  <div className="text-[11px] font-mono text-zinc-400 uppercase">Aforo Íntimo</div>
+                  <div className="text-[11px] font-sans text-zinc-400 uppercase">Aforo Íntimo</div>
                   <div className="text-sm font-semibold text-white flex items-center gap-1.5 mt-0.5">
                     <Users className="w-4 h-4 text-antique-gold" />
                     <span>{SHOW_DETAILS.capacity}</span>
@@ -68,7 +68,7 @@ export const ShowHoudiniTicket = () => {
                     />
                   ))}
                 </div>
-                <span className="text-[9px] font-mono text-zinc-400 tracking-widest mt-1 block">
+                <span className="text-[9px] font-sans text-zinc-400 tracking-widest mt-1 block">
                   PC-HOUDINI-MAD-2025
                 </span>
               </div>
@@ -78,17 +78,17 @@ export const ShowHoudiniTicket = () => {
             <div className="md:col-span-8 p-6 sm:p-8 flex flex-col justify-between space-y-6">
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="px-3 py-1 rounded bg-antique-gold/15 border border-antique-gold/30 text-antique-light text-[11px] font-mono uppercase tracking-wider">
+                  <span className="eyebrow px-3 py-1 rounded bg-antique-gold/15 border border-antique-gold/30 text-antique-light">
                     Top Ventas Nacional (+9 años)
                   </span>
 
-                  <div className="flex items-center gap-1 text-antique-gold font-mono text-xs font-semibold">
+                  <div className="flex items-center gap-1 text-antique-gold font-sans text-xs font-semibold">
                     <Star className="w-4 h-4 fill-antique-gold" />
                     <span>4.9 / 5 (+1.030 opiniones en Atrápalo)</span>
                   </div>
                 </div>
 
-                <h3 className="text-2xl sm:text-3xl font-serif font-bold text-white tracking-tight">
+                <h3 className="heading-md">
                   Una sesión donde tú eres el protagonista
                 </h3>
 
@@ -102,7 +102,7 @@ export const ShowHoudiniTicket = () => {
 
               {/* Weekly Schedules */}
               <div className="p-4 rounded-lg bg-zinc-950/70 border border-zinc-800 space-y-2">
-                <div className="text-[11px] font-mono uppercase text-zinc-400 tracking-wider flex items-center gap-1.5">
+                <div className="text-[11px] font-sans uppercase text-zinc-400 tracking-wider flex items-center gap-1.5">
                   <Clock className="w-3.5 h-3.5 text-antique-gold" />
                   <span>Pases Semanales Habituales</span>
                 </div>
@@ -110,7 +110,7 @@ export const ShowHoudiniTicket = () => {
                   {SHOW_DETAILS.schedule.map((s, idx) => (
                     <div key={idx} className="p-2 rounded bg-zinc-900 border border-zinc-800 flex flex-col">
                       <span className="text-white font-medium">{s.day}</span>
-                      <span className="text-antique-gold font-mono font-semibold text-[11px]">{s.time}</span>
+                      <span className="text-antique-gold font-sans font-semibold text-[11px]">{s.time}</span>
                     </div>
                   ))}
                 </div>

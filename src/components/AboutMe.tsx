@@ -20,13 +20,13 @@ export const AboutMe = () => {
               <div className="p-4 bg-zinc-950 border-t border-zinc-800 flex items-center justify-between text-xs">
                 <div>
                   <div className="text-white font-medium">Pablo Costas</div>
-                  <div className="text-zinc-500 font-mono text-[11px]">@magicoster • +720k seguidores</div>
+                  <div className="text-zinc-500 font-sans text-[11px]">@magicoster • +720k seguidores</div>
                 </div>
                 <a
                   href={CONTACT_INFO.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-2.5 py-1 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-200 font-mono text-[10px] uppercase transition-colors"
+                  className="px-2.5 py-1 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-200 font-sans text-[10px] uppercase transition-colors"
                 >
                   Instagram ↗
                 </a>
@@ -37,10 +37,10 @@ export const AboutMe = () => {
           {/* Right Column: Bio Narrative */}
           <div className="lg:col-span-7 space-y-6">
             <div>
-              <span className="text-xs font-mono uppercase tracking-widest text-champagne block mb-2">
+              <span className="eyebrow block mb-2">
                 Biografía Profesional
               </span>
-              <h2 className="text-3xl sm:text-5xl font-serif font-bold text-white tracking-tight">
+              <h2 className="heading-lg">
                 ¿Quién soy?
               </h2>
             </div>

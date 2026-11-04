@@ -20,14 +20,13 @@ export const Navbar = () => {
   return (
     <header className="sticky top-0 z-50 bg-[#08080a]/95 backdrop-blur-md border-b border-zinc-800/80">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-        {/* Brand */}
-        <Link to="/" className="flex items-baseline gap-2 group">
-          <span className="font-serif text-lg tracking-wider font-semibold text-white group-hover:text-antique-gold transition-colors">
-            PABLO COSTAS
-          </span>
-          <span className="text-[10px] sm:text-[11px] font-mono text-zinc-400 uppercase tracking-widest hidden sm:inline">
-            • Ilusionista
-          </span>
+        {/* Brand: signature, same as hero */}
+        <Link to="/" aria-label="Pablo Costas - Inicio" className="group shrink-0">
+          <img
+            src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,fit=crop/mxBXBX7KznSE6Zr6/firma-AQEZEe1LXGcneLGM.png"
+            alt="Pablo Costas"
+            className="h-9 sm:h-11 w-auto object-contain filter invert opacity-90 group-hover:opacity-100 transition-opacity"
+          />
         </Link>
 
         {/* Desktop Nav */}

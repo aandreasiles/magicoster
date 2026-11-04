@@ -6,10 +6,10 @@ export const Testimonials = () => {
     <section className="py-24 border-b border-zinc-800/80 bg-[#08080c] relative">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-xs font-mono uppercase tracking-widest text-antique-gold block mb-2">
+          <span className="eyebrow block mb-2">
             Crítica & Público
           </span>
-          <h2 className="text-3xl sm:text-5xl font-serif font-bold text-white tracking-tight">
+          <h2 className="heading-lg">
             Opiniones de quienes lo han vivido
           </h2>
           <p className="text-zinc-400 text-sm mt-3">
@@ -30,7 +30,7 @@ export const Testimonials = () => {
               <span className="font-serif font-bold text-base text-antique-light block">
                 {TESTIMONIALS_DATA[0].author}
               </span>
-              <span className="text-zinc-400 font-mono text-[11px]">
+              <span className="text-zinc-400 font-sans text-[11px]">
                 {TESTIMONIALS_DATA[0].role} • {TESTIMONIALS_DATA[0].source}
               </span>
             </div>
@@ -39,7 +39,7 @@ export const Testimonials = () => {
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="w-4 h-4 fill-antique-gold" />
               ))}
-              <span className="font-mono text-zinc-300 ml-1 font-semibold">5 / 5 estrellas</span>
+              <span className="font-sans text-zinc-300 ml-1 font-semibold">5 / 5 estrellas</span>
             </div>
           </div>
         </div>
@@ -65,7 +65,7 @@ export const Testimonials = () => {
               <div className="pt-4 border-t border-zinc-800/80">
                 <div className="font-serif font-bold text-sm text-white">{item.author}</div>
                 <div className="text-[11px] text-zinc-400 mt-0.5">{item.role}</div>
-                <div className="text-[10px] text-antique-gold font-mono mt-1">{item.source}</div>
+                <div className="text-[10px] text-antique-gold font-sans mt-1">{item.source}</div>
               </div>
             </div>
           ))}

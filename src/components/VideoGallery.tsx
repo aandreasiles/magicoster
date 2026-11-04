@@ -11,10 +11,10 @@ export const VideoGallery = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div>
-            <span className="text-xs font-mono uppercase tracking-widest text-champagne block mb-2">
+            <span className="eyebrow block mb-2">
               Actuaciones en Directo
             </span>
-            <h2 className="text-3xl sm:text-5xl font-serif font-bold text-white tracking-tight">
+            <h2 className="heading-lg">
               La magia en acción
             </h2>
           </div>
@@ -59,7 +59,7 @@ export const VideoGallery = () => {
                           <Play className="w-5 h-5 fill-zinc-950 ml-0.5" />
                         </div>
                       </div>
-                      <span className="absolute top-3 left-3 px-2 py-0.5 rounded bg-zinc-950/80 text-zinc-200 text-[10px] font-mono uppercase tracking-wider">
+                      <span className="absolute top-3 left-3 px-2 py-0.5 rounded bg-zinc-950/80 text-zinc-200 text-[10px] font-sans uppercase tracking-wider">
                         {video.category}
                       </span>
                     </button>
@@ -67,7 +67,7 @@ export const VideoGallery = () => {
                 </div>
 
                 <div className="p-4">
-                  <h3 className="text-sm font-serif font-bold text-white mb-1">
+                  <h3 className="heading-sm mb-1">
                     {video.title}
                   </h3>
                   <p className="text-xs text-zinc-400">

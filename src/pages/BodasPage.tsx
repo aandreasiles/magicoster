@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { PageHero } from '../components/PageHero';
 import { Check, ArrowRight } from 'lucide-react';
 import { SERVICES_DATA } from '../data/magicData';
 
@@ -6,30 +7,17 @@ export const BodasPage = () => {
   const service = SERVICES_DATA[1];
 
   return (
-    <div className="py-10 sm:py-16">
-      {/* Page Header */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 mb-12">
-        <div className="flex items-center gap-2 text-xs font-mono text-zinc-400 mb-3">
-          <Link to="/" className="hover:text-white transition-colors">Inicio</Link>
-          <span>/</span>
-          <span className="text-antique-gold font-semibold">Bodas & Particulares</span>
-        </div>
-        <h1 className="text-3xl sm:text-5xl font-serif font-bold text-white tracking-tight mb-4">
-          Magia Profesional en Bodas y Eventos
-        </h1>
-        <p className="text-zinc-300 text-sm sm:text-base max-w-2xl leading-relaxed">
-          Personaliza tu boda de la forma más mágica. Me encargaré de acompañaros en vuestro día para hacer del cóctel o del banquete un momento único y original.
-        </p>
-      </div>
+    <div className="pb-16 sm:pb-24">
+      <PageHero crumb="Bodas & Particulares" eyebrow="Bodas de autor" title="Magia para" accent="Bodas & Particulares" intro="Personaliza tu boda de la forma más mágica. Me encargaré de acompañaros en vuestro día para hacer del cóctel o del banquete un momento único y original." image="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1920,h=1080,fit=crop/mxBXBX7KznSE6Zr6/786_nikoestudio_boda-en-villamaria_rebeca-cesar-Awv9vaPVDjFzoR6j.jpg" suit="♥" />
 
       {/* Main Content */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 mb-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center rounded-2xl border border-zinc-800 bg-[#0a0a0e] p-6 sm:p-10">
           <div className="lg:col-span-7 space-y-5">
-            <span className="text-xs font-mono uppercase tracking-widest text-antique-gold block">
+            <span className="eyebrow block">
               Bodas Exclusivas • 30 a 40 bodas al año
             </span>
-            <h2 className="text-2xl sm:text-4xl font-serif font-bold text-white">
+            <h2 className="heading-lg">
               Dinamiza el cóctel y conecta a tus invitados
             </h2>
             <div className="space-y-3 text-sm text-zinc-300 leading-relaxed">
@@ -78,7 +66,7 @@ export const BodasPage = () => {
 
       {/* Video boda */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <h3 className="text-xl sm:text-2xl font-serif font-bold text-white mb-6">
+        <h3 className="heading-md mb-6">
           Magia multitudinaria en directo en una boda
         </h3>
         <div className="max-w-3xl mx-auto rounded-xl overflow-hidden border border-zinc-800 bg-zinc-900 aspect-video">

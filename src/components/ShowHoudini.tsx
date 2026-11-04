@@ -8,10 +8,10 @@ export const ShowHoudini = () => {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div>
-            <span className="text-xs font-mono uppercase tracking-widest text-champagne block mb-2">
+            <span className="eyebrow block mb-2">
               Espectáculo en Cartelera • Sala Houdini Madrid
             </span>
-            <h2 className="text-3xl sm:text-5xl font-serif font-bold text-white tracking-tight">
+            <h2 className="heading-lg">
               "El Rey de Trébol"
             </h2>
           </div>
@@ -33,7 +33,7 @@ export const ShowHoudini = () => {
               />
             </div>
             <div className="p-5 space-y-3 bg-zinc-950">
-              <div className="flex items-center justify-between text-xs font-mono text-zinc-400">
+              <div className="flex items-center justify-between text-xs font-sans text-zinc-400">
                 <span className="flex items-center gap-1.5 text-white">
                   <MapPin className="w-4 h-4 text-champagne" />
                   <span>{SHOW_DETAILS.location}</span>
@@ -59,14 +59,14 @@ export const ShowHoudini = () => {
               <p>
                 <strong>"El Rey de Trébol"</strong> es un espectáculo de magia de cerca diseñado para que prácticamente todos los espectadores participen de forma directa. Humor elegante, psicología y momentos de auténtico impacto a escasos centímetros.
               </p>
-              <p className="text-zinc-400 text-xs font-mono">
+              <p className="text-zinc-400 text-xs font-sans">
                 ✦ Relojes, anillos, billetes prestados, teléfonos móviles y cartas sin clichés.
               </p>
             </div>
 
             {/* Performance Schedules */}
             <div className="p-5 rounded-lg bg-zinc-900/60 border border-zinc-800 space-y-3">
-              <div className="text-xs font-mono uppercase tracking-wider text-zinc-400 flex items-center gap-1.5">
+              <div className="text-xs font-sans uppercase tracking-wider text-zinc-400 flex items-center gap-1.5">
                 <Clock className="w-3.5 h-3.5 text-champagne" />
                 <span>Horarios habituales (Reserva previa recomendada)</span>
               </div>
@@ -74,7 +74,7 @@ export const ShowHoudini = () => {
                 {SHOW_DETAILS.schedule.map((slot, i) => (
                   <div key={i} className="p-3 rounded bg-zinc-950 border border-zinc-800/80">
                     <div className="text-xs font-semibold text-white">{slot.day}</div>
-                    <div className="text-xs font-mono text-champagne mt-0.5">{slot.time}</div>
+                    <div className="text-xs font-sans text-champagne mt-0.5">{slot.time}</div>
                   </div>
                 ))}
               </div>

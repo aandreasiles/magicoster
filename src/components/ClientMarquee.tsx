@@ -4,7 +4,7 @@ export const ClientMarquee = () => {
   return (
     <section className="py-12 sm:py-16 border-b border-zinc-800/80 bg-[#060608]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <p className="text-[10px] sm:text-[11px] font-mono uppercase tracking-widest text-antique-gold/90 text-center mb-6 sm:mb-8">
+        <p className="eyebrow text-antique-gold/90 text-center mb-6 sm:mb-8">
           ✦ Empresas y marcas que confían en su magia ✦
         </p>
 
@@ -27,7 +27,7 @@ export const ClientMarquee = () => {
                   }}
                 />
               ) : null}
-              <span className="text-[11px] sm:text-xs font-mono text-zinc-400 truncate text-center hidden only:inline">
+              <span className="text-[11px] sm:text-xs font-sans text-zinc-400 truncate text-center hidden only:inline">
                 {client.name}
               </span>
             </div>

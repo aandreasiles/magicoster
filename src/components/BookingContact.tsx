@@ -24,10 +24,10 @@ export const BookingContact = () => {
     <section id="contacto" className="py-20 border-b border-zinc-800/60 bg-[#0a0a0c]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="max-w-2xl mb-12">
-          <span className="text-xs font-mono uppercase tracking-widest text-champagne block mb-2">
+          <span className="eyebrow block mb-2">
             Presupuesto & Disponibilidad
           </span>
-          <h2 className="text-3xl sm:text-5xl font-serif font-bold text-white tracking-tight mb-4">
+          <h2 className="heading-lg mb-4">
             Contacta directamente
           </h2>
           <p className="text-zinc-400 text-sm">
@@ -48,7 +48,7 @@ export const BookingContact = () => {
                 <MessageSquare className="w-5 h-5 fill-white" />
               </div>
               <div>
-                <div className="text-xs font-mono uppercase text-emerald-400">Canal prioritario</div>
+                <div className="text-xs font-sans uppercase text-emerald-400">Canal prioritario</div>
                 <div className="text-sm font-semibold text-white group-hover:text-emerald-300 transition-colors">
                   Escribir por WhatsApp
                 </div>
@@ -59,7 +59,7 @@ export const BookingContact = () => {
               <div className="flex items-start gap-3">
                 <Phone className="w-4 h-4 text-champagne shrink-0 mt-0.5" />
                 <div>
-                  <div className="text-[11px] font-mono text-zinc-400 uppercase">Teléfono</div>
+                  <div className="text-[11px] font-sans text-zinc-400 uppercase">Teléfono</div>
                   <a
                     href={`tel:${CONTACT_INFO.phoneRaw}`}
                     className="text-sm font-medium text-white hover:text-champagne transition-colors"
@@ -72,7 +72,7 @@ export const BookingContact = () => {
               <div className="flex items-start gap-3">
                 <Mail className="w-4 h-4 text-champagne shrink-0 mt-0.5" />
                 <div>
-                  <div className="text-[11px] font-mono text-zinc-400 uppercase">Email directo</div>
+                  <div className="text-[11px] font-sans text-zinc-400 uppercase">Email directo</div>
                   <a
                     href={`mailto:${CONTACT_INFO.email}`}
                     className="text-sm font-medium text-white hover:text-champagne transition-colors break-all"
@@ -85,7 +85,7 @@ export const BookingContact = () => {
               <div className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-champagne shrink-0 mt-0.5" />
                 <div>
-                  <div className="text-[11px] font-mono text-zinc-400 uppercase">Ubicación</div>
+                  <div className="text-[11px] font-sans text-zinc-400 uppercase">Ubicación</div>
                   <div className="text-xs text-zinc-300">
                     {CONTACT_INFO.location}
                   </div>
@@ -100,7 +100,7 @@ export const BookingContact = () => {
               {submitted ? (
                 <div className="py-12 text-center space-y-3">
                   <CheckCircle2 className="w-12 h-12 text-emerald-400 mx-auto" />
-                  <h3 className="text-xl font-serif font-bold text-white">
+                  <h3 className="heading-md">
                     Solicitud enviada correctamente
                   </h3>
                   <p className="text-zinc-400 text-xs max-w-md mx-auto leading-relaxed">
@@ -108,7 +108,7 @@ export const BookingContact = () => {
                   </p>
                   <button
                     onClick={() => setSubmitted(false)}
-                    className="mt-4 px-4 py-2 rounded bg-zinc-800 hover:bg-zinc-700 text-xs font-mono uppercase text-zinc-200 transition-colors"
+                    className="mt-4 px-4 py-2 rounded bg-zinc-800 hover:bg-zinc-700 text-xs font-sans uppercase text-zinc-200 transition-colors"
                   >
                     Enviar otra consulta
                   </button>
@@ -117,7 +117,7 @@ export const BookingContact = () => {
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-[11px] font-mono uppercase tracking-wider text-zinc-400 mb-1.5">
+                      <label className="block text-[11px] font-sans uppercase tracking-wider text-zinc-400 mb-1.5">
                         Nombre *
                       </label>
                       <input
@@ -131,7 +131,7 @@ export const BookingContact = () => {
                     </div>
 
                     <div>
-                      <label className="block text-[11px] font-mono uppercase tracking-wider text-zinc-400 mb-1.5">
+                      <label className="block text-[11px] font-sans uppercase tracking-wider text-zinc-400 mb-1.5">
                         Email *
                       </label>
                       <input
@@ -147,7 +147,7 @@ export const BookingContact = () => {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-[11px] font-mono uppercase tracking-wider text-zinc-400 mb-1.5">
+                      <label className="block text-[11px] font-sans uppercase tracking-wider text-zinc-400 mb-1.5">
                         Teléfono / WhatsApp *
                       </label>
                       <input
@@ -161,7 +161,7 @@ export const BookingContact = () => {
                     </div>
 
                     <div>
-                      <label className="block text-[11px] font-mono uppercase tracking-wider text-zinc-400 mb-1.5">
+                      <label className="block text-[11px] font-sans uppercase tracking-wider text-zinc-400 mb-1.5">
                         Tipo de evento *
                       </label>
                       <select
@@ -180,7 +180,7 @@ export const BookingContact = () => {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-[11px] font-mono uppercase tracking-wider text-zinc-400 mb-1.5">
+                      <label className="block text-[11px] font-sans uppercase tracking-wider text-zinc-400 mb-1.5">
                         Fecha aproximada
                       </label>
                       <input
@@ -192,7 +192,7 @@ export const BookingContact = () => {
                     </div>
 
                     <div>
-                      <label className="block text-[11px] font-mono uppercase tracking-wider text-zinc-400 mb-1.5">
+                      <label className="block text-[11px] font-sans uppercase tracking-wider text-zinc-400 mb-1.5">
                         Ciudad
                       </label>
                       <input
@@ -206,7 +206,7 @@ export const BookingContact = () => {
                   </div>
 
                   <div>
-                    <label className="block text-[11px] font-mono uppercase tracking-wider text-zinc-400 mb-1.5">
+                    <label className="block text-[11px] font-sans uppercase tracking-wider text-zinc-400 mb-1.5">
                       Detalles o dudas
                     </label>
                     <textarea

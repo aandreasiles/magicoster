@@ -23,7 +23,7 @@ function ScrollToTop() {
 
 export function App() {
   return (
-    <BrowserRouter basename="/demos">
+    <BrowserRouter basename="/demos/magicoster">
       <ScrollToTop />
       <div className="min-h-screen bg-[#040406] text-zinc-100 flex flex-col font-sans">
         <Navbar />

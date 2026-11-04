@@ -7,10 +7,10 @@ export const Services = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <div className="max-w-2xl mb-14">
-          <span className="text-xs font-mono uppercase tracking-widest text-champagne block mb-2">
+          <span className="eyebrow block mb-2">
             Servicios Profesionales
           </span>
-          <h2 className="text-3xl sm:text-5xl font-serif font-bold text-white tracking-tight mb-4">
+          <h2 className="heading-lg mb-4">
             Magia adaptada a cada formato de evento
           </h2>
           <p className="text-zinc-400 text-base leading-relaxed">
@@ -35,10 +35,10 @@ export const Services = () => {
                   />
                 </div>
                 <div className="p-6">
-                  <span className="text-[10px] font-mono uppercase tracking-widest text-champagne block mb-2">
+                  <span className="eyebrow block mb-2">
                     {service.badge}
                   </span>
-                  <h3 className="text-xl font-serif font-bold text-white mb-2">
+                  <h3 className="heading-md mb-2">
                     {service.title}
                   </h3>
                   <p className="text-xs text-zinc-400 font-serif italic mb-4">
@@ -74,7 +74,7 @@ export const Services = () => {
 
         {/* 3 Technical disciplines strip */}
         <div className="p-8 rounded-lg bg-zinc-900 border border-zinc-800">
-          <div className="text-xs font-mono uppercase tracking-widest text-zinc-400 mb-6 text-center">
+          <div className="text-xs font-sans uppercase tracking-widest text-zinc-400 mb-6 text-center">
             Especialidades de Ilusionismo
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

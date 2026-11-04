@@ -6,10 +6,10 @@ export const PhotoGallery = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div>
-            <span className="text-xs font-mono uppercase tracking-widest text-champagne block mb-2">
+            <span className="eyebrow block mb-2">
               Galería de Escena
             </span>
-            <h2 className="text-3xl sm:text-5xl font-serif font-bold text-white tracking-tight">
+            <h2 className="heading-lg">
               Instantes y reacciones
             </h2>
           </div>

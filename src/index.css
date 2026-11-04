@@ -46,3 +46,39 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+/* ===== Typographic system: serif for headings, sans for everything else ===== */
+@layer components {
+  .eyebrow {
+    @apply font-sans text-[11px] font-semibold uppercase tracking-[0.28em] text-antique-gold;
+  }
+  .heading-xl {
+    @apply font-serif font-bold text-white tracking-tight leading-[1.05] text-balance text-4xl sm:text-6xl lg:text-7xl;
+  }
+  .heading-lg {
+    @apply font-serif font-bold text-white tracking-tight leading-[1.1] text-balance text-3xl sm:text-5xl;
+  }
+  .heading-md {
+    @apply font-serif font-bold text-white tracking-tight leading-snug text-xl sm:text-2xl;
+  }
+  .heading-sm {
+    @apply font-serif font-bold text-white leading-snug text-base sm:text-lg;
+  }
+  .body-text {
+    @apply font-sans text-sm sm:text-base leading-relaxed text-zinc-300;
+  }
+}
+
+.bg-grain {
+  background-image: radial-gradient(rgba(203,168,110,0.07) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+@keyframes drift { 0%,100% { transform: translateY(0) rotate(var(--r,0deg)); } 50% { transform: translateY(-14px) rotate(var(--r,0deg)); } }
+.animate-drift { animation: drift 7s ease-in-out infinite; }
+@keyframes shine { to { background-position: 200% center; } }
+.text-shine {
+  background: linear-gradient(90deg,#8e703f,#f1e2c8,#cba86e,#fff,#cba86e,#8e703f);
+  background-size: 200% auto;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  animation: shine 6s linear infinite;
+}

@@ -126,11 +126,11 @@ export const InteractiveCardFan = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-[11px] font-mono uppercase tracking-widest text-antique-gold mb-3">
+          <div className="eyebrow inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 mb-3">
             <Sparkles className="w-3.5 h-3.5 text-antique-gold" />
             <span>Elige tu experiencia</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-serif font-bold text-white tracking-tight">
+          <h2 className="heading-lg">
             Despliega la baraja
           </h2>
           <p className="text-zinc-400 text-xs sm:text-sm mt-2 sm:mt-3 leading-relaxed">
@@ -181,7 +181,7 @@ export const InteractiveCardFan = () => {
                       <div className="text-xl sm:text-3xl font-serif mb-0.5 sm:mb-1" style={{ color: card.suitColor }}>
                         {card.suit}
                       </div>
-                      <div className="text-[8px] sm:text-[11px] font-mono uppercase tracking-wider text-zinc-300 font-semibold line-clamp-2">
+                      <div className="text-[8px] sm:text-[11px] font-sans uppercase tracking-wider text-zinc-300 font-semibold line-clamp-2">
                         {card.category}
                       </div>
                     </div>
@@ -225,10 +225,10 @@ export const InteractiveCardFan = () => {
                     {selectedCard.suit}
                   </span>
                   <div>
-                    <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-widest text-antique-gold block">
+                    <span className="eyebrow block">
                       {selectedCard.category}
                     </span>
-                    <h3 className="text-xl sm:text-3xl font-serif font-bold text-white tracking-tight">
+                    <h3 className="heading-md">
                       {selectedCard.title}
                     </h3>
                   </div>
