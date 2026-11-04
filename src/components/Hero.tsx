@@ -43,7 +43,7 @@ export const Hero = () => {
         </motion.div>
 
         <motion.h1 {...fade(0.1)} className="heading-xl max-w-4xl">
-          El imposible sucede a <span className="text-shine italic">centímetros</span> de tus ojos.
+          Lo imposible sucede a <span className="text-shine italic">centímetros</span> de tus ojos.
         </motion.h1>
 
         <motion.p {...fade(0.25)} className="body-text max-w-xl mt-7 sm:text-lg">
