@@ -55,7 +55,7 @@ export const Hero = () => {
             to="/contacto"
             className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-antique-gold hover:bg-antique-light text-zinc-950 font-semibold text-xs uppercase tracking-wider transition-colors shadow-[0_0_40px_-8px_rgba(203,168,110,0.7)]"
           >
-            <span>Contratar para mi evento</span>
+            <span>Pedir presupuesto</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
           <a
