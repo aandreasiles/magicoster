@@ -19,7 +19,7 @@ export const Services = () => {
         </div>
 
         {/* 3 Main Services Editorial Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
           {SERVICES_DATA.map((service) => (
             <div
               key={service.id}
@@ -77,7 +77,7 @@ export const Services = () => {
           <div className="text-xs font-sans uppercase tracking-widest text-zinc-400 mb-6 text-center">
             Especialidades de Ilusionismo
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-2">
               <div className="text-sm font-serif font-bold text-white">
                 Mentalismo & Hipnosis
@@ -93,15 +93,6 @@ export const Services = () => {
               </div>
               <p className="text-xs text-zinc-400 leading-relaxed">
                 Efectos modernos utilizando los teléfonos móviles y redes sociales de los propios asistentes, fusionando tecnología y asombro.
-              </p>
-            </div>
-
-            <div className="space-y-2">
-              <div className="text-sm font-serif font-bold text-white">
-                Pickpocket Cómico
-              </div>
-              <p className="text-xs text-zinc-400 leading-relaxed">
-                "Robos" elegantes de relojes, carteras y corbatas en directo con humor hilarante y devueltos al instante.
               </p>
             </div>
           </div>

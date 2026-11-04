@@ -99,13 +99,12 @@ const DECK_CARDS: MagicCard[] = [
     suit: '✦',
     suitColor: '#cba86e',
     category: 'Especialidades',
-    title: 'Mentalismo, Smartphones & Pickpocket',
+    title: 'Mentalismo & Smartphones',
     tagline: 'Ilusionismo moderno sin clichés',
-    description: 'Olvídate del mago cliché de pañuelos y chistera. Magia contemporánea que involucra la psicología de los invitados, robos cómicos de relojes devueltos al instante y predicciones con sus propios móviles.',
+    description: 'Olvídate del mago cliché de pañuelos y chistera. Magia contemporánea que involucra la psicología de los invitados, relojes y objetos prestados que reaparecen al instante y predicciones con sus propios móviles.',
     image: 'https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1440,h=962,fit=crop/mxBXBX7KznSE6Zr6/reaccion-mk3JLjvNkockLPlZ.jpg',
     points: [
       'Lecturas mentales y sugestión psicológica',
-      'Pickpocket cómico (relojes, carteras y corbatas)',
       'Magia tecnológica con los teléfonos de los asistentes',
       'Espectáculos bilingües en Español e Inglés'
     ],

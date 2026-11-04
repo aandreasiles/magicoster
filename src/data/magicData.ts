@@ -92,7 +92,7 @@ export const SERVICES_DATA: ServiceItem[] = [
       "Durante el Cóctel: mini-shows itinerantes por corrillos, rompiendo el hielo y uniendo grupos",
       "Durante el Banquete: dinamización de esperas entre plato y plato con risas y asombro",
       "Personalización para la pareja: apariciones de regalos o barajas personalizadas con su fecha",
-      "Magia adulta, elegante y participativa: smartphones, mentalismo y pickpocket cómico"
+      "Magia adulta, elegante y participativa: smartphones y mentalismo"
     ],
     image: "https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1920,h=1281,fit=crop/mxBXBX7KznSE6Zr6/786_nikoestudio_boda-en-villamaria_rebeca-cesar-Awv9vaPVDjFzoR6j.jpg",
     category: "bodas"
@@ -168,9 +168,9 @@ export const VIDEOS_DATA: VideoItem[] = [
     category: "Coctelería"
   },
   {
-    id: "pickpocket-mentalismo",
-    title: "Robos imposibles y mentalismo moderno",
-    subtitle: "Asombro garantizado con teléfonos y pertenencias",
+    id: "mentalismo-moderno",
+    title: "Mentalismo moderno y magia con móviles",
+    subtitle: "Asombro garantizado con teléfonos y objetos prestados",
     youtubeId: "vaDjg2UHZSY",
     category: "Mentalismo"
   }

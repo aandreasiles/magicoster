@@ -49,7 +49,7 @@ export const Hero = () => {
         </motion.h1>
 
         <motion.p {...fade(0.25)} className="body-text max-w-xl mt-7 sm:text-lg">
-          Más de 15 años en los escenarios de toda España. Magia de cerca, mentalismo y pickpocket para empresas de prestigio, galas exclusivas y bodas de autor.
+          Más de 15 años en los escenarios de toda España. Magia de cerca y mentalismo para empresas de prestigio, galas exclusivas y bodas de autor.
         </motion.p>
 
         <motion.div {...fade(0.4)} className="flex flex-col sm:flex-row sm:items-center gap-3 mt-9">
