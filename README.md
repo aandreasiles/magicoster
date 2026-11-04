@@ -77,7 +77,7 @@ npm run build
 
 ---
 
-## 🌐 Alojamiento
+## 🌐 Alojamiento & Despliegues
 
-La versión compilada está alojada y servida en:
-**[https://andreasiles.es/demos/](https://andreasiles.es/demos/)**
+- **Dominio propio**: [https://andreasiles.es/demos/magicoster/](https://andreasiles.es/demos/magicoster/)
+- **GitHub Pages**: [https://aandreasiles.github.io/magicoster/](https://aandreasiles.github.io/magicoster/)

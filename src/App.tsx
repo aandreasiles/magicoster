@@ -21,9 +21,11 @@ function ScrollToTop() {
   return null;
 }
 
+const basename = import.meta.env.BASE_URL.replace(/\/$/, '');
+
 export function App() {
   return (
-    <BrowserRouter basename="/demos/magicoster">
+    <BrowserRouter basename={basename}>
       <ScrollToTop />
       <div className="min-h-screen bg-[#040406] text-zinc-100 flex flex-col font-sans">
         <Navbar />
